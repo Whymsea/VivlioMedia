@@ -20,10 +20,10 @@ Pour créer un dossier avec le contenu intégré dans git :
 git clone https://github.com/Whymsea/Sae401.git nom_fichier_que_vous_voulez_créer
 
 Pour envoyer les modifications faites :
-git add -A
-git commit -m "le message"
-git pull 
-git push
+- git add -A
+- git commit -m "le message"
+- git pull 
+- git push
 
 Pour mettre à jour le dossier :
 git pull
