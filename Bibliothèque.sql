@@ -4,86 +4,166 @@
 
 
 #------------------------------------------------------------
-# Table: FILM
+# Table: Commentaire
 #------------------------------------------------------------
 
-CREATE TABLE FILM(
-        ID_Film          Int  Auto_increment  NOT NULL ,
-        Nom_Film         Varchar (50) NOT NULL ,
-        Annee_parution_Film    Date NOT NULL ,
-        Note_Film        Int NOT NULL ,
-        Genre_Film       Varchar (50) NOT NULL ,
-        Themes_Film      Varchar (50) NOT NULL ,
-        Pays_intrigue_Film Varchar (50) NOT NULL ,
-        Langues_Film    Varchar (50) NOT NULL,
-        Subtiltles_Film Varchar (50) NOT NULL,
-        Duree_Film Int NOT NULL,
-        Commentaire_Film Varchar (300) NOT NULL,
-        Realisateur_Film Varchar (50) NOT NULL,
-	,CONSTRAINT FILM_PK PRIMARY KEY (ID_Film)
+CREATE TABLE Commentaire(
+        Id_Commentaire      Int  Auto_increment  NOT NULL ,
+        Contenu_Commentaire Varchar (300) NOT NULL ,
+        Note_Commentaire    Int NOT NULL ,
+        Id_Utilisateurs     Int NOT NULL ,
+        Id_livre            Int NOT NULL ,
+        Id_Film             Int NOT NULL
+	,CONSTRAINT Commentaire_PK PRIMARY KEY (Id_Commentaire)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: LIVRE
+# Table: Bibliothecaire
 #------------------------------------------------------------
 
-CREATE TABLE LIVRE(
-        ID_Livre          Int  Auto_increment  NOT NULL ,
-        Nom_Livre         Varchar (50) NOT NULL ,
-        Genre_Livre   Varchar (50) NOT NULL ,
-        Themes_Livre Varchar (50) NOT NULL,
-        Nombre_page_Livre  Varchar (50) NOT NULL,
-        Annee_parution_Livre    Date NOT NULL ,
-        Langues_Livre   Varchar (50) NOT NULL,
-        Note_Livre        Varchar (50) NOT NULL ,
-        Commentaire_Livre Varchar (300) NOT NULL,
-        Auteur_Livre Varchar (50) NOT NULL 
-	,CONSTRAINT LIVRE_PK PRIMARY KEY (ID_Livre)
+CREATE TABLE Bibliothecaire(
+        Id_Bibliothecaire     Int  Auto_increment  NOT NULL ,
+        Nom_Bibliothecaire    Varchar (50) NOT NULL ,
+        Prenom_Bibliothecaire Varchar (50) NOT NULL ,
+        Mail_Bibliothecaire   Varchar (50) NOT NULL ,
+        Id_livre              Int NOT NULL ,
+        Id_Film               Int NOT NULL
+	,CONSTRAINT Bibliothecaire_PK PRIMARY KEY (Id_Bibliothecaire)
 )ENGINE=InnoDB;
 
-Nom,Genre,Themes,Nombre de page, Annee de parution, Auteur
+
 #------------------------------------------------------------
-# Table: UTILISATEURS
+# Table: Utilisateurs
 #------------------------------------------------------------
 
-CREATE TABLE UTILISATEURS(
-        ID_Utilisateurs     Int  Auto_increment  NOT NULL ,
+CREATE TABLE Utilisateurs(
+        Id_Utilisateurs     Int  Auto_increment  NOT NULL ,
         Nom_Utilisateurs    Varchar (50) NOT NULL ,
         Prenom_Utilisateurs Varchar (50) NOT NULL ,
-        Mail_Utilisateurs   Varchar (50) NOT NULL
-	,CONSTRAINT UTILISATEURS_PK PRIMARY KEY (ID_Utilisateurs)
+        Mail_Utilisateurs   Varchar (50) NOT NULL ,
+        Id_Commentaire      Int NOT NULL
+	,CONSTRAINT Utilisateurs_PK PRIMARY KEY (Id_Utilisateurs)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: BIBLIOTECAIRE
+# Table: Livre
 #------------------------------------------------------------
 
-CREATE TABLE BIBLIOTECAIRE(
-        ID_Bibliothecaire      Int  Auto_increment  NOT NULL ,
-        Nom_Bibliothecaire     Varchar (50) NOT NULL ,
-        Prenom_Biblibothecaire Varchar (50) NOT NULL ,
-        Mail_Bibliothecaire    Varchar (50) NOT NULL ,
-        ID_Livre               Int NOT NULL ,
-        ID_Film                Int NOT NULL
-	,CONSTRAINT BIBLIOTECAIRE_PK PRIMARY KEY (ID_Bibliothecaire)
-
-	,CONSTRAINT BIBLIOTECAIRE_LIVRE_FK FOREIGN KEY (ID_Livre) REFERENCES LIVRE(ID_Livre)
-	,CONSTRAINT BIBLIOTECAIRE_FILM0_FK FOREIGN KEY (ID_Film) REFERENCES FILM(ID_Film)
+CREATE TABLE Livre(
+        Id_livre             Int  Auto_increment  NOT NULL ,
+        Nom_livre            Varchar (50) NOT NULL ,
+        Genre_Livre          Varchar (50) NOT NULL ,
+        Theme_Livre          Varchar (50) NOT NULL ,
+        Nmbre_Page_Livre     Int NOT NULL ,
+        Annee_Parution_Livre Date NOT NULL ,
+        Langue_Livre         Varchar (50) NOT NULL ,
+        Auteur_Livre         Varchar (50) NOT NULL ,
+        Id_Commentaire       Int NOT NULL
+	,CONSTRAINT Livre_PK PRIMARY KEY (Id_livre)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: ADMINISTRATEUR
+# Table: Administrateur
 #------------------------------------------------------------
 
-CREATE TABLE ADMINISTRATEUR(
+CREATE TABLE Administrateur(
         Id_Administrateurs     Int  Auto_increment  NOT NULL ,
         Nom_Administrateurs    Varchar (50) NOT NULL ,
         Prenom_Administrateurs Varchar (50) NOT NULL ,
-        Mail_Administrateurs   Varchar (50) NOT NULL
-	,CONSTRAINT ADMINISTRATEUR_PK PRIMARY KEY (Id_Administrateurs)
+        Mail_Administrateurs   Varchar (50) NOT NULL ,
+        Id_Bibliothecaire      Int NOT NULL
+	,CONSTRAINT Administrateur_PK PRIMARY KEY (Id_Administrateurs)
 )ENGINE=InnoDB;
 
 
+#------------------------------------------------------------
+# Table: Film
+#------------------------------------------------------------
+
+CREATE TABLE Film(
+        Id_Film             Int  Auto_increment  NOT NULL ,
+        Nom_Film            Varchar (50) NOT NULL ,
+        Genre_Film          Varchar (50) NOT NULL ,
+        Theme_Film          Varchar (50) NOT NULL ,
+        Duree_Film          Int NOT NULL ,
+        Annee_Parution_Film Date NOT NULL ,
+        Langue_Film         Varchar (50) NOT NULL ,
+        Realisateurs_Film   Varchar (50) NOT NULL ,
+        Id_Commentaire      Int NOT NULL
+	,CONSTRAINT Film_PK PRIMARY KEY (Id_Film)
+)ENGINE=InnoDB;
+
+
+
+
+ALTER TABLE Commentaire
+	ADD CONSTRAINT Commentaire_Utilisateurs0_FK
+	FOREIGN KEY (Id_Utilisateurs)
+	REFERENCES Utilisateurs(Id_Utilisateurs);
+
+ALTER TABLE Commentaire
+	ADD CONSTRAINT Commentaire_Livre1_FK
+	FOREIGN KEY (Id_livre)
+	REFERENCES Livre(Id_livre);
+
+ALTER TABLE Commentaire
+	ADD CONSTRAINT Commentaire_Film2_FK
+	FOREIGN KEY (Id_Film)
+	REFERENCES Film(Id_Film);
+
+ALTER TABLE Commentaire 
+	ADD CONSTRAINT Commentaire_Utilisateurs0_AK 
+	UNIQUE (Id_Utilisateurs);
+
+ALTER TABLE Commentaire 
+	ADD CONSTRAINT Commentaire_Livre1_AK 
+	UNIQUE (Id_livre);
+
+ALTER TABLE Commentaire 
+	ADD CONSTRAINT Commentaire_Film2_AK 
+	UNIQUE (Id_Film);
+
+ALTER TABLE Bibliothecaire
+	ADD CONSTRAINT Bibliothecaire_Livre0_FK
+	FOREIGN KEY (Id_livre)
+	REFERENCES Livre(Id_livre);
+
+ALTER TABLE Bibliothecaire
+	ADD CONSTRAINT Bibliothecaire_Film1_FK
+	FOREIGN KEY (Id_Film)
+	REFERENCES Film(Id_Film);
+
+ALTER TABLE Utilisateurs
+	ADD CONSTRAINT Utilisateurs_Commentaire0_FK
+	FOREIGN KEY (Id_Commentaire)
+	REFERENCES Commentaire(Id_Commentaire);
+
+ALTER TABLE Utilisateurs 
+	ADD CONSTRAINT Utilisateurs_Commentaire0_AK 
+	UNIQUE (Id_Commentaire);
+
+ALTER TABLE Livre
+	ADD CONSTRAINT Livre_Commentaire0_FK
+	FOREIGN KEY (Id_Commentaire)
+	REFERENCES Commentaire(Id_Commentaire);
+
+ALTER TABLE Livre 
+	ADD CONSTRAINT Livre_Commentaire0_AK 
+	UNIQUE (Id_Commentaire);
+
+ALTER TABLE Administrateur
+	ADD CONSTRAINT Administrateur_Bibliothecaire0_FK
+	FOREIGN KEY (Id_Bibliothecaire)
+	REFERENCES Bibliothecaire(Id_Bibliothecaire);
+
+ALTER TABLE Film
+	ADD CONSTRAINT Film_Commentaire0_FK
+	FOREIGN KEY (Id_Commentaire)
+	REFERENCES Commentaire(Id_Commentaire);
+
+ALTER TABLE Film 
+	ADD CONSTRAINT Film_Commentaire0_AK 
+	UNIQUE (Id_Commentaire);
