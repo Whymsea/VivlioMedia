@@ -60,7 +60,8 @@ CREATE TABLE Livre(
         Annee_Parution_Livre Date NOT NULL ,
         Langue_Livre         Varchar (50) NOT NULL ,
         Auteur_Livre         Varchar (50) NOT NULL ,
-        Emprunt_Livre       Int NOT NULL,
+        Emprunt_Livre        Int NOT NULL,
+		Sommaire_Livre		 Varchar (300) NOT NULL,
         Id_Commentaire       Int NOT NULL
 	,CONSTRAINT Livre_PK PRIMARY KEY (Id_livre)
 )ENGINE=InnoDB;
