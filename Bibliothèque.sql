@@ -40,7 +40,7 @@ CREATE TABLE Film(
         Casting_Film        Varchar (150) NOT NULL ,
         Synopsis_Film       Varchar (500) NOT NULL ,
         Emprunt_Film        Int NOT NULL,
-        Sous_Titre_Film     Varchar (20)
+        Sous_Titre_Film     Varchar (20) NOT NULL
 	,CONSTRAINT Film_PK PRIMARY KEY (Id_Film)
 )ENGINE=InnoDB;
 
