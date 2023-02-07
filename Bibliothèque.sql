@@ -17,7 +17,9 @@ CREATE TABLE Livre(
         Langue_Livre         Varchar (50) NOT NULL ,
         Auteur_Livre         Varchar (50) NOT NULL ,
         Emprunt_Livre        Int NOT NULL ,
-        Sommaire_Livre       Varchar (300) NOT NULL
+        Sommaire_Livre       Varchar (300) NOT NULL,
+        ISBN_Livre           Varchar (10) NOT NULL,
+        Editeur_Livre        Varchar (40) NOT NULL
 	,CONSTRAINT Livre_PK PRIMARY KEY (Id_livre)
 )ENGINE=InnoDB;
 
@@ -37,7 +39,8 @@ CREATE TABLE Film(
         Realisateurs_Film   Varchar (50) NOT NULL ,
         Casting_Film        Varchar (150) NOT NULL ,
         Synopsis_Film       Varchar (500) NOT NULL ,
-        Emprunt_Film        Int NOT NULL
+        Emprunt_Film        Int NOT NULL,
+        Sous_Titre_Film     Varchar (20)
 	,CONSTRAINT Film_PK PRIMARY KEY (Id_Film)
 )ENGINE=InnoDB;
 
