@@ -4,10 +4,10 @@
 	Créer une base de donnée avec encodage utf-8_unicode !
 	importer le fichier bibliothèque.sql
 
-2. Copier le fichier /app/config_sample.php en tant que /app/config.php et NE PAS modifier le fichier sample. 
+2. Changer vivi par le nom de votre base de donnée dans le fichier connexion
 
 /!\  ATTENTION  /!\
-Lors d'un push, ne pas push le fichier /app/config.php contenant les identifiants de connexion sql.
+Lors d'un push, ne pas push le fichier connexion.php contenant les identifiants de connexion sql.
 
 Les commandes les plus importantes dans git CMD :
 
