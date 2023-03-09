@@ -4,7 +4,7 @@ function Connexion()
 {
 $hostname = 'localhost'; /*** mysql hostname ***/
 $username = 'root'; /*** mysql username ***/
-$password = 'root'; /*** mysql password ***/
+$password = ''; /*** mysql password ***/
 $db = 'vivi'; /*** mysql database ***/
 // Data Source Name
 $dsn = "mysql:host=$hostname;dbname=$db";
