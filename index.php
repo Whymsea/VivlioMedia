@@ -43,7 +43,29 @@ require_once("connexion.php")
                         <div id="gen-menu-contain" class="gen-menu-contain">
                            <ul id="gen-main-menu" class="navbar-nav ml-auto">
                               <li class="menu-item active">
+<<<<<<< HEAD
                                  <a href="movies-home.html" aria-current="page">Film</a>
+=======
+                                 <a href="#" aria-current="page">Home</a>
+                                 <i class="fa fa-chevron-down gen-submenu-icon"></i>
+                                 <ul class="sub-menu">
+                                    <li class="menu-item active">
+                                       <a href="index.php" aria-current="page">Main Home</a>
+                                    </li>
+                                    <li class="menu-item">
+                                       <a href="movies-home.html" aria-current="page">Movies Home</a>
+                                    </li>
+                                    <li class="menu-item">
+                                       <a href="tv-shows-home.html" aria-current="page">Tv Shows Home</a>
+                                    </li>
+                                    <li class="menu-item">
+                                       <a href="video-home.html" aria-current="page">Video Home</a>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <li class="menu-item">
+                                 <a href="#">Movies</a>
+>>>>>>> bca0aca9e1a3fcd6b7ae1ca10a94a781b0dd0a56
                                  <i class="fa fa-chevron-down gen-submenu-icon"></i>
 
                                  <ul class="sub-menu">
