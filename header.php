@@ -1,119 +1,162 @@
 <!--========== Header ==============-->
+<?php include 'header.php'; ?>
+<!--========== Header ==============-->
+
+<!-- footer start -->
+<?php include 'footer.php'; ?>
+    <!-- footer End -->
+
+
+
+<!--========== Header ==============-->
 <header id="gen-header" class="gen-header-style-1 gen-has-sticky">
   <div class="gen-bottom-header">
      <div class="container">
         <div class="row">
            <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg navbar-light">
+                <!--========== Logo ==============-->
                  <a class="navbar-brand" href="#">
                     <img class="img-fluid logo" src="images/logo.png" alt="streamlab-image">
                  </a>
+                 <!--========== Logo ==============-->
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div id="gen-menu-contain" class="gen-menu-contain">
                        <ul id="gen-main-menu" class="navbar-nav ml-auto">
+
+                        <!--========== Menu Film ==============-->
                           <li class="menu-item active">
                              <a href="#" aria-current="page">Film</a>
                              <i class="fa fa-chevron-down gen-submenu-icon"></i>
 
+                             <!--========== Sous-Menu ==============-->
                              <ul class="sub-menu">
                                 <li class="menu-item menu-item-has-children">
+                                  <!--========== Catégories ==============-->
                                    <a href="#">Catégorie</a>
                                    <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                    <ul class="sub-menu">
+                                    <!--========== Catégorie 1 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-load-more.html">Action</a>
                                       </li>
+                                      <!--========== Catégorie 2 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-infinite-scroll.html">Aventure</a>
                                       </li>
+                                      <!--========== Catégorie 3 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Suspense</a>
                                       </li>
+                                      <!--========== Catégorie 4 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Thriller</a>
                                       </li>
+                                      <!--========== Catégorie 5 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Horreur</a>
                                       </li>
+                                      <!--========== Catégorie 6 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Comédie</a>
                                       </li>
+                                      <!--========== Catégorie 7 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Fantastique</a>
                                       </li>
+                                      <!--========== Catégorie 8 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Science Fiction</a>
                                       </li>
+                                      <!--========== Catégorie 9 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Documentaire</a>
                                       </li>
+                                      <!--========== Catégorie 10 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Romance</a>
                                       </li>
                                    </ul>
                                 </li>
 
-                                
+                                <!--========== Ma Liste ==============-->
                                 <li class="menu-item menu-item-has-children">
                                    <a href="#">Ma Liste</a>
                                    <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                 </li>
+                                <!--========== Ma Liste ==============-->
                              </ul>
-
                           </li>
+                          <!--========== Sous-Menu ==============-->
+                          <!--========== Menu Film ==============-->
+
+
+                          <!--========== Menu Livres ==============-->
 
                           <li class="menu-item">
                              <a href="tv-shows-home.html">Livre</a>
                              <i class="fa fa-chevron-down gen-submenu-icon"></i>
                              
+                             <!--========== Sous-Menu ==============-->
                              <ul class="sub-menu">
                                 <li class="menu-item menu-item-has-children">
+                                  <!--========== Catégories ==============-->
                                    <a href="#">Catégorie</a>
                                    <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                    <ul class="sub-menu">
+                                    <!--========== Catégorie 1 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-load-more.html">Action</a>
                                       </li>
+                                      <!--========== Catégorie 2 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-infinite-scroll.html">Aventure</a>
                                       </li>
+                                      <!--========== Catégorie 3 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Suspense</a>
                                       </li>
+                                      <!--========== Catégorie 4 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Thriller</a>
                                       </li>
+                                      <!--========== Catégorie 5 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Horreur</a>
                                       </li>
+                                      <!--========== Catégorie 6 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Comédie</a>
                                       </li>
+                                      <!--========== Catégorie 7 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Fantastique</a>
                                       </li>
+                                      <!--========== Catégorie 8 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Science Fiction</a>
                                       </li>
+                                      <!--========== Catégorie 9 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Documentaire</a>
                                       </li>
+                                      <!--========== Catégorie 10 ==============-->
                                       <li class="menu-item">
                                          <a href="movies-pagination.html">Romance</a>
                                       </li>
                                    </ul>
                                 </li>
 
-                                
+                                <!--========== Ma Liste ==============-->
                                 <li class="menu-item menu-item-has-children">
                                    <a href="#">Ma Liste</a>
                                    <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                 </li>
+                                <!--========== Ma Liste ==============-->
                              </ul>
-                             
                           </li>
-                      
-                       </ul>
+                          <!--========== Sous-Menu ==============-->
+
                     </div>
                  </div>
                  <div class="gen-header-info-box">
