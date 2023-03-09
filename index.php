@@ -47,7 +47,7 @@ require_once("connexion.php")
                                  <i class="fa fa-chevron-down gen-submenu-icon"></i>
                                  <ul class="sub-menu">
                                     <li class="menu-item active">
-                                       <a href="index.html" aria-current="page">Main Home</a>
+                                       <a href="index.php" aria-current="page">Main Home</a>
                                     </li>
                                     <li class="menu-item">
                                        <a href="movies-home.html" aria-current="page">Movies Home</a>
