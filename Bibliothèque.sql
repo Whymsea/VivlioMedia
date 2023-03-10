@@ -9,42 +9,43 @@
 
 CREATE TABLE Livre(
         Id_livre             Int  Auto_increment  NOT NULL ,
-        Nom_livre            Varchar (50) NOT NULL ,
-        Genre_Livre          Varchar (50) NOT NULL ,
-        Theme_Livre          Varchar (50) NOT NULL ,
+        Nom_livre            Varchar (80) NOT NULL ,
+        Genre_Livre          Varchar (80) NOT NULL ,
+        Theme_Livre          Varchar (80) NOT NULL ,
         Nmbre_Page_Livre     Int NOT NULL ,
-        Annee_Parution_Livre Date NOT NULL ,
-        Langue_Livre         Varchar (50) NOT NULL ,
-        Auteur_Livre         Varchar (50) NOT NULL ,
+        Annee_Parution_Livre int NOT NULL ,
+        Langue_Livre         Varchar (80) NOT NULL ,
+        Auteur_Livre         Varchar (80) NOT NULL ,
         Emprunt_Livre        Int NOT NULL ,
         Sommaire_Livre       Varchar (300) NOT NULL,
-        ISBN_Livre           Varchar (20) NOT NULL,
-        Editeur_Livre        Varchar (40) NOT NULL,
+        ISBN_Livre           Varchar (25) NOT NULL,
+        Editeur_Livre        Varchar (80) NOT NULL,
         Couverture_Livre     Varchar (250)
 	,CONSTRAINT Livre_PK PRIMARY KEY (Id_livre)
 )ENGINE=InnoDB;
+
 
 
 #------------------------------------------------------------
 # Table: Film
 #------------------------------------------------------------
 
-CREATE TABLE Film(
-        Id_Film             Int  Auto_increment  NOT NULL ,
-        Nom_Film            Varchar (50) NOT NULL ,
-        Genre_Film          Varchar (50) NOT NULL ,
-        Theme_Film          Varchar (50) NOT NULL ,
-        Duree_Film          Int NOT NULL ,
-        Annee_Parution_Film Date NOT NULL ,
-        Langue_Film         Varchar (50) NOT NULL ,
-        Realisateurs_Film   Varchar (50) NOT NULL ,
-        Casting_Film        Varchar (150) NOT NULL ,
-        Synopsis_Film       Varchar (500) NOT NULL ,
-        Emprunt_Film        Int NOT NULL,
-        Sous_Titre_Film     Varchar (20) NOT NULL,
-        Couverture_Film     Varchar (250) NULL ,
-	,CONSTRAINT Film_PK PRIMARY KEY (Id_Film)
-)ENGINE=InnoDB;
+CREATE TABLE film (
+  Id_Film               int(11) NOT NULL,
+  Nom_Film              varchar(150) NOT NULL,
+  Genre_Film            varchar(80) NOT NULL,
+  Theme_Film            varchar(80) NOT NULL,
+  Duree_Film            int NOT NULL,
+  Annee_Parution_Film   int NOT NULL,
+  Langue_Film           varchar(50) NOT NULL,
+  Realisateurs_Film     varchar(50) NOT NULL,
+  Acteur1_Film          varchar(50) NOT NULL,
+  Acteur2_Film          varchar(50) NOT NULL,
+  Synopsis_Film         varchar(500) DEFAULT NULL,
+  Emprunt_Film          int NOT NULL,
+  Sous_Titre_Film       varchar(80) NOT NULL,
+  Couverture_Film       varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -150,8 +151,3 @@ ALTER TABLE Utilisateurs
 	ADD CONSTRAINT Utilisateurs_Commentaire0_AK 
 	UNIQUE (Id_Commentaire);
 
- INSERT INTO `Livre`(`Id_livre`, `Nom_livre`, `Genre_Livre`, `Theme_Livre`, `Nmbre_Page_Livre`, `Annee_Parution_Livre`, `Langue_Livre`, `Auteur_Livre`, `Emprunt_Livre`, `ISBN_Livre`, `Editeur_Livre`,`Couverture_Livre`,`Sommaire_Livre`)
- Values   
-('1',  'À FOND','Roman','Thriller ','272 pages','2021','Français', 'Christian Fillon', '0','Aucun','Indepandant','Pas de sommaire existant'),
-('2',  'Aux Confins de l''été','Roman','Romance','252 pages','2020','Français', 'Esther Stark ', '0','Aucun','Indepandant','C’est une histoire d''amour se déroulant dans un village côtier du sud-ouest de la France.'),
-('3',  'Data Song - Le Jeu des Lunes','Roman','Science-fiction','384 pages','2021','Français', 'Michel Ettewiller', '0','979-8351915838','Indepandant','Dans un futur proche, la société est gouvernée par une intelligence artificielle, mais un groupe de rebelles se bat pour libérer l''humanité.'),
