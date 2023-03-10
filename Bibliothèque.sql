@@ -56,6 +56,7 @@ CREATE TABLE Bibliothecaire(
         Id_Bibliothecaire     Int  Auto_increment  NOT NULL ,
         Nom_Bibliothecaire    Varchar (50) NOT NULL ,
         Prenom_Bibliothecaire Varchar (50) NOT NULL ,
+        Mdp_Utilisateurs      Varchar (50) NOT NULL ,
         Mail_Bibliothecaire   Varchar (50) NOT NULL ,
         Id_livre              Int NOT NULL ,
         Id_Film               Int NOT NULL
@@ -71,6 +72,7 @@ CREATE TABLE Administrateur(
         Id_Administrateurs     Int  Auto_increment  NOT NULL ,
         Nom_Administrateurs    Varchar (50) NOT NULL ,
         Prenom_Administrateurs Varchar (50) NOT NULL ,
+        Mdp_Utilisateurs Varchar (50) NOT NULL ,
         Mail_Administrateurs   Varchar (50) NOT NULL ,
         Id_Bibliothecaire      Int NOT NULL
 	,CONSTRAINT Administrateur_PK PRIMARY KEY (Id_Administrateurs)
@@ -100,6 +102,7 @@ CREATE TABLE Utilisateurs(
         Id_Utilisateurs     Int  Auto_increment  NOT NULL ,
         Nom_Utilisateurs    Varchar (50) NOT NULL ,
         Prenom_Utilisateurs Varchar (50) NOT NULL ,
+        Mdp_Utilisateurs Varchar (50) NOT NULL ,
         Mail_Utilisateurs   Varchar (50) NOT NULL ,
         Id_Commentaire      Int NOT NULL
 	,CONSTRAINT Utilisateurs_PK PRIMARY KEY (Id_Utilisateurs)

@@ -411,7 +411,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -501,7 +501,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -564,7 +564,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -629,7 +629,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -694,7 +694,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -759,7 +759,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -824,7 +824,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -889,7 +889,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -954,7 +954,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1019,7 +1019,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1084,7 +1084,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1377,7 +1377,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1440,7 +1440,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1504,7 +1504,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1568,7 +1568,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1613,7 +1613,7 @@ require_once("connexion.php")
                                        <div class="movie-actions--link_add-to-playlist dropdown">
                                           <a class="dropdown-toggle" href="#"><i class="fa fa-plus"></i></a>
                                           <div class="dropdown-menu">
-                                             <a class="login-link" href="register.html">Sign
+                                             <a class="login-link" href="register.php">Sign
                                                 in to add this movie to a playlist.</a>
                                           </div>
                                        </div>
@@ -1836,7 +1836,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1899,7 +1899,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -1964,7 +1964,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -2029,7 +2029,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -2094,7 +2094,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -2159,7 +2159,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -2224,7 +2224,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -2289,7 +2289,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>
@@ -2354,7 +2354,7 @@ require_once("connexion.php")
                                           <div class="dropdown-menu mCustomScrollbar">
                                              <div class="mCustomScrollBox">
                                                 <div class="mCSB_container">
-                                                   <a class="login-link" href="register.html">Sign in to add this movie
+                                                   <a class="login-link" href="register.php">Sign in to add this movie
                                                       to a
                                                       playlist.</a>
                                                 </div>

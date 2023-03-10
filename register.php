@@ -21,7 +21,7 @@
 <body>
 
     <!--=========== Loader =============-->
-    <div id="gen-loading">
+    <div id="gen-loading" style="display: none;">
         <div id="gen-loading-center">
             <img src="images/logo-1.png" alt="loading">
         </div>
@@ -38,8 +38,7 @@
                     <div class="text-center">
                         <form id="pms_register-form" class="pms-form" method="POST">
                             <h4>Register</h4>
-                            <input type="hidden" id="pmstkn" name="pmstkn" value="59b502f483"><input type="hidden"
-                                name="_wp_http_referer" value="/register/">
+                            <input type="hidden" id="pmstkn" name="pmstkn" value="59b502f483"><input type="hidden" name="_wp_http_referer" value="/register/">
                             <ul class="pms-form-fields-wrapper pl-0">
                                 <li class="pms-field pms-user-login-field ">
                                     <label for="pms_user_login">Username *</label>
@@ -66,38 +65,10 @@
                                     <input id="pms_pass2" name="pass2" type="password">
                                 </li>
                                 <li class="pms-field pms-field-subscriptions ">
-                                    <div class="pms-subscription-plan"><label><input type="radio"
-                                                name="subscription_plans" data-price="199" data-duration="1"
-                                                value="7330" checked="checked" data-default-selected="true"><span
-                                                class="pms-subscription-plan-name">Premium</span><span
-                                                class="pms-subscription-plan-price"><span class="pms-divider"> -
-                                                </span><span class="pms-subscription-plan-price-value">199</span><span
-                                                    class="pms-subscription-plan-currency">$</span><span
-                                                    class="pms-divider"> / </span>1 Month</span><span
-                                                class="pms-subscription-plan-trial"></span><span
-                                                class="pms-subscription-plan-sign-up-fee"></span></label></div>
-                                    <div class="pms-subscription-plan"><label><input type="radio"
-                                                name="subscription_plans" data-price="99" data-duration="1" value="7329"
-                                                data-default-checked="false"><span
-                                                class="pms-subscription-plan-name">Standard</span><span
-                                                class="pms-subscription-plan-price"><span class="pms-divider"> -
-                                                </span><span class="pms-subscription-plan-price-value">99</span><span
-                                                    class="pms-subscription-plan-currency">$</span><span
-                                                    class="pms-divider"> / </span>1 Month</span><span
-                                                class="pms-subscription-plan-trial"></span><span
-                                                class="pms-subscription-plan-sign-up-fee"></span></label></div>
-                                    <div class="pms-subscription-plan"><label><input type="radio"
-                                                name="subscription_plans" data-price="29" data-duration="1" value="7328"
-                                                data-default-checked="false"><span
-                                                class="pms-subscription-plan-name">Basic</span><span
-                                                class="pms-subscription-plan-price"><span class="pms-divider"> -
-                                                </span><span class="pms-subscription-plan-price-value">29</span><span
-                                                    class="pms-subscription-plan-currency">$</span><span
-                                                    class="pms-divider"> / </span>1 Month</span><span
-                                                class="pms-subscription-plan-trial"></span><span
-                                                class="pms-subscription-plan-sign-up-fee"></span></label></div>
-                                    <div id="pms-paygates-wrapper"><input type="hidden" class="pms_pay_gate"
-                                            name="pay_gate" value="paypal_standard"></div>
+                                    
+                                    
+                                    
+                                    
                                 </li>
                             </ul>
                             <span id="pms-submit-button-loading-placeholder-text" class="d-none">Processing. Please
@@ -112,7 +83,7 @@
     <!-- register -->
 
     <!-- Back-to-Top start -->
-    <div id="back-to-top">
+    <div id="back-to-top" style="display: none;">
         <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
     </div>
     <!-- Back-to-Top end -->
@@ -140,6 +111,8 @@
     <script src="js/streamlab-core.js"></script>
 
     <script src="js/script.js"></script>
+
+
 
 
 </body>

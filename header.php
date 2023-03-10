@@ -179,11 +179,11 @@
                           <ul class="gen-account-menu">
                              <!-- Pms Menu -->
                              <li>
-                                <a href="log-in.html"><i class="fas fa-sign-in-alt"></i>
+                                <a href="log-in.php"><i class="fas fa-sign-in-alt"></i>
                                    login </a>
                              </li>
                              <li>
-                                <a href="register.html"><i class="fa fa-user"></i>
+                                <a href="register.php"><i class="fa fa-user"></i>
                                    Register </a>
                              </li>
                              <!-- Library Menu -->
@@ -212,7 +212,7 @@
                        </div>
                     </div>
                     <div class="gen-btn-container">
-                       <a href="register.html" class="gen-button">
+                       <a href="register.php" class="gen-button">
                           <div class="gen-button-block">
                              <span class="gen-button-line-left"></span>
                              <span class="gen-button-text">Subscribe</span>

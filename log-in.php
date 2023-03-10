@@ -56,7 +56,7 @@
                                 <input type="hidden" name="redirect_to">
                             </p>
                             <input type="hidden" name="pms_login" value="1"><input type="hidden" name="pms_redirect"><a
-                                href="register.html">Register</a> | <a href="recover-password.html">Lost your
+                                href="register.php">Register</a> | <a href="recover-password.html">Lost your
                                 password?</a>
                         </form>
                     </div>
