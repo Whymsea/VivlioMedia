@@ -4,8 +4,8 @@ function Connexion()
 {
 $hostname = 'localhost'; /*** mysql hostname ***/
 $username = 'root'; /*** mysql username ***/
-$password = ''; /*** mysql password ***/
-$db = 'vivi'; /*** mysql database ***/
+$password = 'root'; /*** mysql password ***/
+$db = 'chat2'; /*** mysql database ***/
 // Data Source Name
 $dsn = "mysql:host=$hostname;dbname=$db";
 try {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 10 Mars 2023 à 20:28
+-- Généré le :  Sam 11 Mars 2023 à 09:43
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -86,9 +86,9 @@ CREATE TABLE `film` (
   `Synopsis_Film` varchar(500) DEFAULT NULL,
   `Emprunt_Film` int(11) NOT NULL,
   `Sous_Titre_Film` varchar(80) NOT NULL,
-  `Couverture_Film` varchar(250) NOT NULL,
-  `Background_Film` varchar(250) NOT NULL
+  `Couverture_Film` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -122,15 +122,14 @@ CREATE TABLE `utilisateurs` (
   `Id_Utilisateurs` int(11) NOT NULL,
   `Nom_Utilisateurs` varchar(50) NOT NULL,
   `Prenom_Utilisateurs` varchar(50) NOT NULL,
-  `Mdp_Utilisateurs` varchar(50) NOT NULL,
-  `Mail_Utilisateurs` varchar(50) NOT NULL,
   `Pseudo_Utilisateurs` varchar(50) NOT NULL,
-  `Id_Commentaire` int(11) NOT NULL
+  `Mdp_Utilisateurs` varchar(100) NOT NULL,
+  `Mail_Utilisateurs` varchar(100) NOT NULL,
+  `Id_Commentaire` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Index pour les tables exportées
---
+
+
 
 --
 -- Index pour la table `administrateur`
@@ -198,12 +197,12 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `livre`
 --
 ALTER TABLE `livre`
-  MODIFY `Id_livre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_livre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `Id_Utilisateurs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Utilisateurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Contraintes pour les tables exportées
 --
