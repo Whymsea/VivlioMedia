@@ -1,14 +1,4 @@
 <!--========== Header ==============-->
-<?php include 'header.php'; ?>
-<!--========== Header ==============-->
-
-<!-- footer start -->
-<?php include 'footer.php'; ?>
-    <!-- footer End -->
-
-
-
-<!--========== Header ==============-->
 <header id="gen-header" class="gen-header-style-1 gen-has-sticky">
   <div class="gen-bottom-header">
      <div class="container">
