@@ -42,27 +42,27 @@
                             <ul class="pms-form-fields-wrapper pl-0">
                                 <li class="pms-field pms-user-login-field ">
                                     <label for="pms_user_login">Username *</label>
-                                    <input id="pms_user_login" name="user_login" type="text" value="">
+                                    <input id="pms_user_login" name="Utilisateurs_Pseudo" type="text" value="">
                                 </li>
                                 <li class="pms-field pms-user-email-field ">
                                     <label for="pms_user_email">E-mail *</label>
-                                    <input id="pms_user_email" name="user_email" type="text" value="">
+                                    <input id="pms_user_email" name="Utilisateurs_Mail" type="text" value="">
                                 </li>
                                 <li class="pms-field pms-first-name-field ">
                                     <label for="pms_first_name">First Name</label>
-                                    <input id="pms_first_name" name="first_name" type="text" value="">
+                                    <input id="pms_first_name" name="Utilisateurs_Prénom" type="text" value="">
                                 </li>
                                 <li class="pms-field pms-last-name-field ">
                                     <label for="pms_last_name">Last Name</label>
-                                    <input id="pms_last_name" name="last_name" type="text" value="">
+                                    <input id="pms_last_name" name="Utilisateurs_Nom" type="text" value="">
                                 </li>
                                 <li class="pms-field pms-pass1-field">
                                     <label for="pms_pass1">Password *</label>
-                                    <input id="pms_pass1" name="pass1" type="password">
+                                    <input id="pms_pass1" name="mdp1" type="password">
                                 </li>
                                 <li class="pms-field pms-pass2-field">
                                     <label for="pms_pass2">Repeat Password *</label>
-                                    <input id="pms_pass2" name="pass2" type="password">
+                                    <input id="pms_pass2" name="mdp2" type="password">
                                 </li>
                                 <li class="pms-field pms-field-subscriptions ">
                                     
@@ -81,7 +81,39 @@
         </div>
     </section>
     <!-- register -->
+    <?php
+   // Variables pour les données du formulaire
+$nom = $_POST['noUtilisateurs_Nom'];
+$prenom = $_POST['Utilisateurs_Prénom'];
+$pseudo = $_POST['Utilisateurs_Pseudo'];
+$mail = $_POST['Utilisateurs_Mail'];
+$mot_de_passe = $_POST['mdp1'];
+$mot_de_passe_confirmation = $_POST['mdp2'];
 
+// Vérifier si les mots de passe correspondent
+if ($mot_de_passe != $mot_de_passe_confirmation) {
+    die("Erreur : les mots de passe ne correspondent pas.");
+}
+
+// Vérifier si le mail est valide
+if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+    die("Erreur : le format de l'adresse mail n'est pas valide.");
+}
+
+// Hasher le mot de passe avant de l'insérer dans la base de données
+$mot_de_passe_hashe = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+
+// Préparer la requête SQL pour insérer les données dans la base de données
+$stmt = $connexion->prepare("INSERT INTO utilisateurs (Nom_Utilisateurs, Prenom_Utilisateurs, Pseudo_Utilisateurs, Mdp_Utilisateurs, Mail_Utilisateurs) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $nom, $prenom, $pseudo, $mail, $mot_de_passe_hashe);
+
+// Exécuter la requête SQL
+if ($stmt->execute()) {
+    echo "Les données ont été insérées avec succès.";
+} else {
+    echo "Erreur lors de l'insertion des données: " . $stmt->error;
+}
+?>
     <!-- Back-to-Top start -->
     <div id="back-to-top" style="display: none;">
         <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>

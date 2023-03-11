@@ -39,16 +39,11 @@
                             <h4>Sign In</h4>
                             <p class="login-username">
                                 <label for="user_login">Username or Email Address</label>
-                                <input type="text" name="log" id="user_login" class="input" value="" size="20">
+                                <input type="text" name="Utilisateur" id="user_login" class="input" value="" size="20">
                             </p>
                             <p class="login-password">
                                 <label for="user_pass">Password</label>
-                                <input type="password" name="pwd" id="user_pass" class="input" value="" size="20">
-                            </p>
-                            <p class="login-remember">
-                                <label>
-                                    <input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember
-                                    Me </label>
+                                <input type="password" name="Mdp" id="user_pass" class="input" value="" size="20">
                             </p>
                             <p class="login-submit">
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary"
@@ -65,7 +60,25 @@
         </div>
     </section>
     <!-- Log-in  -->
+    <?php
+    if (isset($_POST['wp-submit'])) {
+    $identifiant = $_POST['Utilisateur'];
+    $mdp = $_POST['Mdp'];
 
+    // Rechercher l'utilisateur dans la base de données
+    $requete = "SELECT * FROM utilisateurs WHERE (Pseudo_Utilisateurs='$identifiant' OR Mail_Utilisateurs='$identifiant') AND Mdp_Utilisateurs='$mdp'";
+    $resultat = $connexion->query($requete);
+
+    // Vérifier si l'utilisateur existe
+    if ($resultat->num_rows == 1) {
+        // L'utilisateur existe, connecter l'utilisateur
+        // Par exemple, créer une session pour stocker les informations de l'utilisateur
+    } else {
+        // L'utilisateur n'existe pas ou le mot de passe est incorrect
+        $erreur = "Identifiant ou mot de passe incorrect.";
+    }
+}
+?>
     <!-- Back-to-Top start -->
     <div id="back-to-top">
         <a class="top" id="top" href="#top"> <i class="ion-ios-arrow-up"></i> </a>
