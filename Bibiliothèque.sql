@@ -86,7 +86,8 @@ CREATE TABLE `film` (
   `Synopsis_Film` varchar(500) DEFAULT NULL,
   `Emprunt_Film` int(11) NOT NULL,
   `Sous_Titre_Film` varchar(80) NOT NULL,
-  `Couverture_Film` varchar(250) NOT NULL
+  `Couverture_Film` varchar(250) NOT NULL,
+  `Background_Film` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
