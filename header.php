@@ -1,3 +1,4 @@
+<?php require_once ("connexion.php"); ?>
 <!--========== Header ==============-->
 <header id="gen-header" class="gen-header-style-1 gen-has-sticky">
   <div class="gen-bottom-header">
@@ -28,43 +29,39 @@
                                    <ul class="sub-menu">
                                     <!--========== Catégorie 1 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-load-more.html">Action</a>
+                                         <a href="Genre_Film.php?Genre_Film=Action">Action</a>
                                       </li>
                                       <!--========== Catégorie 2 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-infinite-scroll.html">Aventure</a>
+                                         <a href="Genre_Film.php?Genre_Film=Animation">Animation</a>
                                       </li>
                                       <!--========== Catégorie 3 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Suspense</a>
+                                         <a href="Genre_Film.php?Genre_Film=Aventure">Aventure</a>
                                       </li>
                                       <!--========== Catégorie 4 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Thriller</a>
+                                         <a href="Genre_Film.php?Genre_Film=Comédie">Comédie</a>
                                       </li>
                                       <!--========== Catégorie 5 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Horreur</a>
+                                         <a href="Genre_Film.php?Genre_Film=Drame">Drame</a>
                                       </li>
                                       <!--========== Catégorie 6 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Comédie</a>
+                                         <a href="Genre_Film.php?Genre_Film=Fantasy">Fantasy</a>
                                       </li>
                                       <!--========== Catégorie 7 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Fantastique</a>
+                                         <a href="Genre_Film.php?Genre_Film=Policier">Policier</a>
                                       </li>
                                       <!--========== Catégorie 8 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Science Fiction</a>
+                                         <a href="Genre_Film.php?Genre_Film=Science Fiction">Science Fiction</a>
                                       </li>
                                       <!--========== Catégorie 9 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Documentaire</a>
-                                      </li>
-                                      <!--========== Catégorie 10 ==============-->
-                                      <li class="menu-item">
-                                         <a href="movies-pagination.html">Romance</a>
+                                         <a href="Genre_Film.php?Genre_Film=Thriller">Thriller</a>
                                       </li>
                                    </ul>
                                 </li>
@@ -78,7 +75,6 @@
                              </ul>
                           </li>
                           <!--========== Sous-Menu ==============-->
-                          <!--========== Menu Film ==============-->
 
 
                           <!--========== Menu Livres ==============-->
@@ -96,43 +92,63 @@
                                    <ul class="sub-menu">
                                     <!--========== Catégorie 1 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-load-more.html">Action</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Autobiographie">Autobiographie</a>
                                       </li>
                                       <!--========== Catégorie 2 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-infinite-scroll.html">Aventure</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Aventure">Aventure</a>
                                       </li>
                                       <!--========== Catégorie 3 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Suspense</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Contemporain">Contemporain</a>
                                       </li>
                                       <!--========== Catégorie 4 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Thriller</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Cuisine">Cuisine</a>
                                       </li>
                                       <!--========== Catégorie 5 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Horreur</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Développement personnel">Développement personnel</a>
                                       </li>
                                       <!--========== Catégorie 6 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Comédie</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Drame">Drame</a>
                                       </li>
                                       <!--========== Catégorie 7 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Fantastique</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Fantastique">Fantastique</a>
                                       </li>
                                       <!--========== Catégorie 8 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Science Fiction</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Historique">Historique</a>
                                       </li>
                                       <!--========== Catégorie 9 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Documentaire</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Jeunesse">Jeunesse</a>
                                       </li>
                                       <!--========== Catégorie 10 ==============-->
                                       <li class="menu-item">
-                                         <a href="movies-pagination.html">Romance</a>
+                                         <a href="Genre_Livre.php?Genre_Livre=Nouvelles">Nouvelles</a>
+                                      </li>
+                                       <!--========== Catégorie 11 ==============-->
+                                       <li class="menu-item">
+                                         <a href="Genre_Livre.php?Genre_Livre=Policier">Policier</a>
+                                      </li>
+                                       <!--========== Catégorie 12 ==============-->
+                                       <li class="menu-item">
+                                         <a href="Genre_Livre.php?Genre_Livre=Romance">Romance</a>
+                                      </li>
+                                       <!--========== Catégorie 13 ==============-->
+                                       <li class="menu-item">
+                                         <a href="Genre_Livre.php?Genre_Livre=Science-fiction">Science-fiction</a>
+                                      </li>
+                                       <!--========== Catégorie 14 ==============-->
+                                       <li class="menu-item">
+                                         <a href="Genre_Livre.php?Genre_Livre=Suspence">Suspence</a>
+                                      </li>
+                                       <!--========== Catégorie 15 ==============-->
+                                       <li class="menu-item">
+                                         <a href="Genre_Livre.php?Genre_Livre=Thriller">Thriller</a>
                                       </li>
                                    </ul>
                                 </li>

@@ -4254,6 +4254,7 @@ Carousel Movies
     border-radius: 0;
     border: none;
     outline: none;
+  
 }
 
 .movie-grid .gen-movie-add .wpulike-heart .wp_ulike_put_image.wp_ulike_btn_is_active,
@@ -4450,7 +4451,7 @@ Carousel Movies
 .gen-carousel-movies-style-2 {
     margin-bottom: 30px;
     display: inline-block;
-    width: 100%;
+    width: 220px;
 }
 
 .gen-carousel-movies-style-2 .gen-movie-contain {
@@ -5417,6 +5418,7 @@ Banner
     display: inline-block;
     margin-right: 30px;
 }
+
 
 .gen-banner-movies .owl-carousel .owl-item .gen-movie-contain .gen-movie-info,
 .gen-banner-movies .owl-carousel .owl-item .gen-movie-contain .gen-movie-meta-holder,

@@ -373,13 +373,13 @@ require_once("connexion.php")
                      data-loop="false" data-margin="30">
                      <?php
                                 // Préparation et exécution de la requête SQL
-                                $stmt = $db->query("SELECT Nom_livre, Couverture_Livre FROM livre;");
+                                $stmt = $db->query("SELECT Nom_livre, Couverture_Livre, Theme_Livre FROM livre WHERE Theme_Livre ='Romance'");
 
                                 // Récupération des résultats dans un tableau associatif
                                 $livres = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                  foreach ($livres as $livre) : 
                                 $nom_image = $livre['Couverture_Livre'];
-                                $chemin_image = "images/couvertures/$nom_image";
+                                $chemin_image = "images/couvertures/Livre/$nom_image";
                                 ?>
                      <div class="item">
                         <div
