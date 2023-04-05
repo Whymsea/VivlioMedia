@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 11 Mars 2023 à 09:43
+-- Généré le :  Mer 05 Avril 2023 à 12:40
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `chat2`
+-- Base de données :  `vivi`
 --
 
 -- --------------------------------------------------------
@@ -113,6 +113,7 @@ CREATE TABLE `livre` (
   `Couverture_Livre` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 -- --------------------------------------------------------
 
 --
@@ -129,8 +130,9 @@ CREATE TABLE `utilisateurs` (
   `Id_Commentaire` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
+--
+-- Index pour les tables exportées
+--
 
 --
 -- Index pour la table `administrateur`
@@ -203,7 +205,7 @@ ALTER TABLE `livre`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `Id_Utilisateurs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Utilisateurs` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Contraintes pour les tables exportées
 --

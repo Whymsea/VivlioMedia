@@ -57,7 +57,7 @@
                                       </li>
                                       <!--========== Catégorie 8 ==============-->
                                       <li class="menu-item">
-                                         <a href="Genre_Film.php?Genre_Film=Science Fiction">Science Fiction</a>
+                                         <a href="Genre_Film.php?Genre_Film=Science-fiction">Science Fiction</a>
                                       </li>
                                       <!--========== Catégorie 9 ==============-->
                                       <li class="menu-item">

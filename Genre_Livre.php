@@ -10,6 +10,7 @@ if (isset($_GET['Genre_Livre'])) {
   // Construire la requête SQL en fonction du genre sélectionné
   $requete = "SELECT * FROM livre WHERE Genre_Livre ='$genre_livre'";
 
+
   // Exécuter la requête SQL et récupérer les résultats
   $resultats = $db->query($requete)->fetchAll(PDO::FETCH_ASSOC);
 } else {
