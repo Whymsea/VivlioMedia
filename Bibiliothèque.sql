@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 05 Avril 2023 à 12:40
+-- Généré le :  Jeu 06 Avril 2023 à 10:52
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `acteur`
+--
+
+CREATE TABLE `acteur` (
+  `Id_Acteur` int(11) NOT NULL,
+  `Nom_Acteur` varchar(50) NOT NULL,
+  `Prenom_Acteur` varchar(50) NOT NULL,
+  `Photo_Acteur` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `administrateur`
 --
 
@@ -33,6 +46,19 @@ CREATE TABLE `administrateur` (
   `Mdp_Utilisateurs` varchar(50) NOT NULL,
   `Mail_Administrateurs` varchar(50) NOT NULL,
   `Id_Bibliothecaire` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `auteur`
+--
+
+CREATE TABLE `auteur` (
+  `Id_Auteur` int(11) NOT NULL,
+  `Nom_Auteur` varchar(50) NOT NULL,
+  `Prenom_Auteur` varchar(50) NOT NULL,
+  `Photo_Auteur` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -87,9 +113,9 @@ CREATE TABLE `film` (
   `Emprunt_Film` int(11) NOT NULL,
   `Sous_Titre_Film` varchar(80) NOT NULL,
   `Couverture_Film` varchar(250) NOT NULL,
-  `Background_Film` varchar(250) NOT NULL
+  `Background_Film` varchar(250) NOT NULL,
+  `Id_realisateurs` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 -- --------------------------------------------------------
 
@@ -110,9 +136,22 @@ CREATE TABLE `livre` (
   `Sommaire_Livre` varchar(300) NOT NULL,
   `ISBN_Livre` varchar(25) NOT NULL,
   `Editeur_Livre` varchar(80) NOT NULL,
-  `Couverture_Livre` varchar(250) DEFAULT NULL
+  `Couverture_Livre` varchar(250) DEFAULT NULL,
+  `Id_Auteur` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `realisateurs`
+--
+
+CREATE TABLE `realisateurs` (
+  `Id_realisateurs` int(11) NOT NULL,
+  `Nom_realisateurs` varchar(50) NOT NULL,
+  `Prenom_realisateurs` varchar(50) NOT NULL,
+  `Photo_realisateurs` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -130,9 +169,29 @@ CREATE TABLE `utilisateurs` (
   `Id_Commentaire` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `acteur_film`(
+ `Id_Jonction` int(11) NOT NULL,
+ `Id_Acteur` int(11) NOT NULL,
+ `Id_Film` int(11) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `acteur`
+--
+ALTER TABLE `acteur`
+  ADD PRIMARY KEY (`Id_Acteur`);
+
+--
+-- Index pour la table `acteur_film`
+--
+ALTER TABLE `acteur_film`
+  ADD PRIMARY KEY (`Id_Jonction`),
+  ADD KEY `acteur_film_acteur0_FK` (`Id_Acteur`),
+  ADD KEY `acteur_film_film1_FK` (`Id_Film`);
 
 --
 -- Index pour la table `administrateur`
@@ -140,6 +199,12 @@ CREATE TABLE `utilisateurs` (
 ALTER TABLE `administrateur`
   ADD PRIMARY KEY (`Id_Administrateurs`),
   ADD KEY `Administrateur_Bibliothecaire0_FK` (`Id_Bibliothecaire`);
+
+--
+-- Index pour la table `auteur`
+--
+ALTER TABLE `auteur`
+  ADD PRIMARY KEY (`Id_Auteur`);
 
 --
 -- Index pour la table `bibliothecaire`
@@ -162,13 +227,21 @@ ALTER TABLE `commentaire`
 -- Index pour la table `film`
 --
 ALTER TABLE `film`
-  ADD PRIMARY KEY (`Id_Film`);
+  ADD PRIMARY KEY (`Id_Film`),
+  ADD KEY `film_realisateurs0_FK` (`Id_realisateurs`);
 
 --
 -- Index pour la table `livre`
 --
 ALTER TABLE `livre`
-  ADD PRIMARY KEY (`Id_livre`);
+  ADD PRIMARY KEY (`Id_livre`),
+   ADD KEY `livre_auteur0_FK` (`Id_Auteur`);
+
+--
+-- Index pour la table `realisateurs`
+--
+ALTER TABLE `realisateurs`
+  ADD PRIMARY KEY (`Id_realisateurs`);
 
 --
 -- Index pour la table `utilisateurs`
@@ -182,10 +255,26 @@ ALTER TABLE `utilisateurs`
 --
 
 --
+-- AUTO_INCREMENT pour la table `acteur`
+--
+ALTER TABLE `acteur`
+  MODIFY `Id_Acteur` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `acteur_film`
+--
+ALTER TABLE `acteur_film`
+  MODIFY `Id_Jonction` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `administrateur`
 --
 ALTER TABLE `administrateur`
   MODIFY `Id_Administrateurs` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `auteur`
+--
+ALTER TABLE `auteur`
+  MODIFY `Id_Auteur` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `bibliothecaire`
 --
@@ -196,11 +285,22 @@ ALTER TABLE `bibliothecaire`
 --
 ALTER TABLE `commentaire`
   MODIFY `Id_Commentaire` int(11) NOT NULL AUTO_INCREMENT;
+
+  --
+-- AUTO_INCREMENT pour la table `commentaire`
+--
+ALTER TABLE `film`
+  MODIFY `Id_Film` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `livre`
 --
 ALTER TABLE `livre`
   MODIFY `Id_livre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+--
+-- AUTO_INCREMENT pour la table `realisateurs`
+--
+ALTER TABLE `realisateurs`
+  MODIFY `Id_realisateurs` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
@@ -211,10 +311,24 @@ ALTER TABLE `utilisateurs`
 --
 
 --
--- Contraintes pour la table `administrateur`
+-- Contraintes pour la table `Administrateur`
 --
 ALTER TABLE `administrateur`
   ADD CONSTRAINT `Administrateur_Bibliothecaire0_FK` FOREIGN KEY (`Id_Bibliothecaire`) REFERENCES `bibliothecaire` (`Id_Bibliothecaire`);
+
+  --
+-- Contraintes pour la table `acteur_film`
+--
+ALTER TABLE `acteur_film`
+  ADD CONSTRAINT `acteur_film_acteur0_FK` FOREIGN KEY (`Id_Acteur`) REFERENCES `acteur` (`Id_Acteur`),
+  ADD CONSTRAINT `acteur_film_film1_FK` FOREIGN KEY (`Id_Film`) REFERENCES `film` (`Id_Film`);
+--
+-- Contraintes pour la table `Livre`
+--
+ALTER TABLE `livre`
+  ADD CONSTRAINT `livre_auteur0_FK` FOREIGN KEY (`Id_Auteur`) REFERENCES `auteur` (`Id_Auteur`);
+
+
 
 --
 -- Contraintes pour la table `bibliothecaire`
@@ -236,6 +350,12 @@ ALTER TABLE `commentaire`
 --
 ALTER TABLE `utilisateurs`
   ADD CONSTRAINT `Utilisateurs_Commentaire0_FK` FOREIGN KEY (`Id_Commentaire`) REFERENCES `commentaire` (`Id_Commentaire`);
+
+  --
+-- Contraintes pour la table `Film`
+--
+ALTER TABLE `film`
+  ADD CONSTRAINT `film_realisateurs0_FK` FOREIGN KEY (`Id_realisateurs`) REFERENCES `realisateurs` (`Id_realisateurs`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
