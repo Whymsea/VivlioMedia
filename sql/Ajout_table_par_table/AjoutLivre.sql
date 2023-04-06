@@ -44,4 +44,4 @@
 ('43', 'L''Oiseau du destin', 'Roman', 'Fantastique, aventure', '206', '2019', 'Français', 'Carole2490', 'NULL', '978-2-322-18222-5', 'Independant', 'NULL','L_Oiseau_Du_Destin.png'),
 ('44', 'LE CIRQUE DE NOe', 'Roman jeunesse', 'Cirque, animaux', '264', '2019', 'Français', 'STEPHANE GASPARINI', 'NULL', '978-2-36183-507-6', 'Independant', 'NULL','Le Cirque De Noe.png'),
 ('45', 'WANTED GERMAINE', 'Polar', 'Enquête, criminalite', '344', '2018', 'Français', 'Anthony REY', 'NULL', '979-10-92194-54-2', 'Independant', 'NULL','Wanted Germaine.png'),
-('46', 'Comme un soir d''automne', 'Nouvelles', 'Vie quotidienne, relations humaines', '112', '2019', 'Français', 'Sorly Veignelly', 'NULL', '978-2-9556485-0-1', 'Independant', 'NULL','Comme un soir d''automne.png')
+('46', 'Comme un soir d''automne', 'Nouvelles', 'Vie quotidienne, relations humaines', '112', '2019', 'Français', 'Sorly Veignelly', 'NULL', '978-2-9556485-0-1', 'Independant', 'NULL','Comme un soir d''automne.png');
