@@ -169,11 +169,10 @@
                     <div class="gen-menu-search-block">
                        <a href="javascript:void(0)" id="gen-seacrh-btn"><i class="fa fa-search"></i></a>
                        <div class="gen-search-form">
-                          <form role="search" method="get" class="search-form" action="#">
-                             <label>
+                       <form role="search" method="post" class="search-form" action="recherche_traitement.php">
                                 <span class="screen-reader-text"></span>
-                                <input type="search" class="search-field" placeholder="Search …" value="" name="s">
-                             </label>
+                              <?php include("recherche.php"); ?>
+                            
                              <button type="submit" class="search-submit"><span
                                    class="screen-reader-text"></span></button>
                           </form>

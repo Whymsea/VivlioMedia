@@ -1,5 +1,4 @@
 <?php
-
 // Connexion à la base de données
 $serveur = "localhost";
 $utilisateur = "root";
@@ -13,13 +12,13 @@ if (!$connexion) {
     die("Erreur de connexion à la base de données : " . mysqli_connect_error());
 }
 
-// Récupération de la variable $q envoyée par la requête AJAX
-$q = $_POST["q"];
+// Récupération de la variable $search envoyée par la requête AJAX
+$search = $_POST["search"];
 
-// Requête SQL pour rechercher les films et les livres correspondant à la recherche
-$sql = "SELECT * FROM livre WHERE Nom_livre, Genre_Livre, Auteur_Livre LIKE '%$q%'
+// Requête SQL pour rechercher les livres et les films correspondant à la recherche
+$sql = "SELECT Nom_Livre AS nom, 'livre' AS type FROM livre WHERE Nom_Livre LIKE '%$search%'
         UNION 
-        SELECT * FROM film WHERE Nom_Film, Genre_Film, Realisateurs_Film LIKE '%$q%'";
+        SELECT Nom_Film AS nom, 'film' AS type FROM film WHERE Nom_Film LIKE '%$search%'";
 
 // Exécution de la requête SQL
 $resultat = mysqli_query($connexion, $sql);
@@ -33,10 +32,9 @@ while ($ligne = mysqli_fetch_assoc($resultat)) {
 }
 
 // Conversion du tableau $resultats en format JSON et envoi de la réponse au format JSON
-header('Content-Type: application/json');
-echo json_encode($resultats);
+header('Content-Type: application/json; charset=UTF-8');
+echo json_encode($resultats, JSON_UNESCAPED_UNICODE);
 
 // Fermeture de la connexion à la base de données
 mysqli_close($connexion);
-
 ?>
