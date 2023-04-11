@@ -3,6 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		.suggestion {
+		display: block;
+		padding: 5px;
+		text-decoration: none;
+		color: black;
+		width: 310px;
+		box-sizing: border-box;
+		}
+		
+		.suggestion:hover {
+			background-color: #ddd;
+		}
+	</style>
 </head>
 <body>
 	<input type="text" id="search-box" placeholder="Rechercher...">
@@ -25,13 +39,17 @@
 						},
 						dataType: "json",
 						success: function(results) {
-							// Affichage des résultats de la recherche
-							var html = "";
-							$.each(results, function(index, item) {
-								html += "<div>" + item.type + " : " + item.nom + "</div>";
-							});
-							$("#search-results").html(html);
+						// Affichage des résultats de la recherche
+						var html = "";
+						var suggestionsList = document.getElementById("search-results");
+						for (let i = 0; i < results.length; i++) {
+							const suggestion = document.createElement("a"); // création d'un lien
+							suggestion.href = results[i].url; // ajout de l'url au lien
+							suggestion.classList.add("suggestion"); // ajout de la classe suggestion au lien
+							suggestion.innerHTML = " (" + results[i].type + ")" + results[i].nom; // ajout du nom et du type de la suggestion comme texte du lien
+							suggestionsList.appendChild(suggestion); // ajout du lien à la liste des suggestions
 						}
+					}
 					});
 				} else {
 					// Effacement des résultats de la recherche

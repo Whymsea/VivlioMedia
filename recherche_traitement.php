@@ -16,9 +16,9 @@ if (!$connexion) {
 $search = $_POST["search"];
 
 // Requête SQL pour rechercher les livres et les films correspondant à la recherche
-$sql = "SELECT Nom_Livre AS nom, 'livre' AS type FROM livre WHERE Nom_Livre LIKE '%$search%'
+$sql = "SELECT Id_Livre, Nom_Livre  AS nom, 'livre' AS type, CONCAT('livre.php?id=', Id_Livre) AS url FROM livre WHERE Nom_Livre LIKE '%$search%'
         UNION 
-        SELECT Nom_Film AS nom, 'film' AS type FROM film WHERE Nom_Film LIKE '%$search%'";
+        SELECT Id_Film, Nom_Film  AS nom, 'film' AS type, CONCAT('film.php?id=', Id_Film) AS url FROM film WHERE Nom_Film LIKE '%$search%'";
 
 // Exécution de la requête SQL
 $resultat = mysqli_query($connexion, $sql);
@@ -28,7 +28,26 @@ $resultats = array();
 
 // Ajout des résultats de la requête au tableau $resultats
 while ($ligne = mysqli_fetch_assoc($resultat)) {
-    $resultats[] = $ligne;
+    // Ajout d'un lien pour chaque suggestion
+    $nom = $ligne['nom'];
+    $type = $ligne['type'];
+    $id = null;
+    if (isset($ligne['id'])) {
+        $id = $ligne['id'];
+    }
+    if ($type == 'film' && isset($ligne['Id_Film'])) {
+        $id = $ligne['Id_Film'];
+    }
+    else if ($type == 'livre' && isset($ligne['Id_Livre'])) {
+        $id = $ligne['Id_Livre'];
+    }
+    $lien = "";
+    if ($id && $type == 'livre') {
+        $lien = "livre.php?id=$id";
+    } else if ($id && $type == 'film') {
+        $lien = "film.php?id=$id";
+    }
+    $resultats[] = array('nom' => $nom, 'type' => $type, 'lien' => $lien);
 }
 
 // Conversion du tableau $resultats en format JSON et envoi de la réponse au format JSON

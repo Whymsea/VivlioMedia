@@ -7,7 +7,7 @@
            <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg navbar-light">
                 <!--========== Logo ==============-->
-                 <a class="navbar-brand" href="#">
+                 <a class="navbar-brand" href="index.php">
                     <img class="img-fluid logo" src="images/logo.png" alt="streamlab-image">
                  </a>
                  <!--========== Logo ==============-->
