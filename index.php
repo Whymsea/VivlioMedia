@@ -44,7 +44,7 @@ require_once("connexion.php")
             data-loop="true" data-margin="0">
             <?php
             // Préparation et exécution de la requête SQL
-            $stmt = $db->query("SELECT Nom_Film, Background_Film, Genre_Film, lien_youtube, Synopsis_Film FROM film WHERE Genre_Film ='Comedie'");
+            $stmt = $db->query("SELECT * FROM film WHERE Genre_Film ='Comedie'");
 
             // Récupération des résultats dans un tableau associatif
             $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -91,7 +91,7 @@ require_once("connexion.php")
                             <ul class="gen-meta-after-excerpt">
                               <li>
                                 <strong>Cast :</strong>
-                                Anna Romanson,Robert Romanson
+                                <?php echo $film['Acteur1_Film']; ?>, <?php echo $film['Acteur2_Film']; ?>
                               </li>
                               <li>
                                 <strong>Genre :</strong>
@@ -100,20 +100,13 @@ require_once("connexion.php")
                               <li>
                                 <strong>Tag :</strong>
                                 <span>
-                                  <a href="#">
-                                    4K Ultra, </a>
+                                <?php echo $film['Theme_Film']; ?>
                                 </span>
+                              </li>
+                              <li>
+                                <strong>Durée du film :</strong>
                                 <span>
-                                  <a href="#">
-                                    Brother, </a>
-                                </span>
-                                <span>
-                                  <a href="#">
-                                    Dubbing, </a>
-                                </span>
-                                <span>
-                                  <a href="#">
-                                    Premieres </a>
+                                <?php echo $film['Duree_Film']; ?> mins
                                 </span>
                               </li>
                             </ul>
