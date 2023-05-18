@@ -44,7 +44,7 @@ require_once("connexion.php")
             data-loop="true" data-margin="0">
             <?php
             // Préparation et exécution de la requête SQL
-            $stmt = $db->query("SELECT Nom_Film, Background_Film, Genre_Film FROM film WHERE Genre_Film ='Comedie'");
+            $stmt = $db->query("SELECT Nom_Film, Background_Film, Genre_Film, lien_youtube, Synopsis_Film FROM film WHERE Genre_Film ='Comedie'");
 
             // Récupération des résultats dans un tableau associatif
             $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ require_once("connexion.php")
                         <div class="gen-front-image">
                           <?php echo "<img src='$chemin_background' alt='owl-carousel-banner-image'>" ?>
 
-                          <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="playBut popup-youtube popup-vimeo popup-gmaps">
+                          <a href="<?php echo $film['lien_youtube']; ?>" class="playBut popup-youtube popup-vimeo popup-gmaps">
                             <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In  -->
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="213.7px" height="213.7px" viewBox="0 0 213.7 213.7" enable-background="new 0 0 213.7 213.7" xml:space="preserve">
                               <polygon class="triangle" id="XMLID_17_" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="73.5,62.5 148.5,105.8 73.5,149.1 "></polygon>
@@ -85,8 +85,7 @@ require_once("connexion.php")
                                              <span> 0 </span>
                                           </li>
                           </ul>
-                          <p>Streamlab is a long established fact that a reader will be distracted
-                            by the readable content of a page The point of using Lorem Streamlab.
+                          <p><?php echo $film['Synopsis_Film']; ?>
                           </p>
                           <div class="gen-meta-info">
                             <ul class="gen-meta-after-excerpt">
@@ -96,18 +95,7 @@ require_once("connexion.php")
                               </li>
                               <li>
                                 <strong>Genre :</strong>
-                                <span>
-                                  <a href="action.html">
-                                    Action, </a>
-                                </span>
-                                <span>
-                                  <a href="animation.html">
-                                    Animation, </a>
-                                </span>
-                                <span>
-                                  <a href="#">
-                                    Family </a>
-                                </span>
+                                <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                               </li>
                               <li>
                                 <strong>Tag :</strong>
@@ -180,7 +168,7 @@ require_once("connexion.php")
                      data-loop="false" data-margin="30">
                      <?php
                                 // Préparation et exécution de la requête SQL
-                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film FROM film WHERE Genre_Film ='Drame'");
+                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film, Duree_Film FROM film WHERE Genre_Film ='Drame'");
 
                                 // Récupération des résultats dans un tableau associatif
                                 $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -239,9 +227,9 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-meta-holder">
                                        <ul>
-                                          <li>2hr 00mins</li>
+                                          <li><?php echo $film['Duree_Film'];?> mins</li>
                                           <li>
-                                             <a href="action.html"><span>Action</span></a>
+                                          <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                           </li>
                                        </ul>
                                     </div>
@@ -280,7 +268,7 @@ require_once("connexion.php")
                      data-loop="false" data-margin="30">
                      <?php
                                 // Préparation et exécution de la requête SQL
-                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film FROM film WHERE Genre_Film ='Aventure'");
+                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film, Duree_Film FROM film WHERE Genre_Film ='Aventure'");
 
                                 // Récupération des résultats dans un tableau associatif
                                 $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -341,9 +329,9 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-meta-holder">
                                        <ul>
-                                          <li>1 Season</li>
+                                          <li><?php echo $film['Duree_Film']; ?> min</li>
                                           <li>
-                                             <a href="adventure.html"><span>Adventure</span></a>
+                                          <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                           </li>
                                        </ul>
                                     </div>
@@ -426,11 +414,9 @@ require_once("connexion.php")
                            <h3><?php echo $film['Nom_Film']; ?></h3>
                            <div class="gen-movie-meta-holder">
                               <ul>
-                                 <li><?php echo $film['Duree_Film']; ?></li>
+                                 <li><?php echo $film['Duree_Film']; ?> mins</li>
                                  <li>
-                                    <a href="action.html">
-                                       <?php echo $film['Genre_Film']; ?>
-                                    </a>
+                                 <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><?php echo $film['Genre_Film']; ?></a>
                                  </li>
                               </ul>
                            </div>
@@ -531,9 +517,9 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-meta-holder">
                                        <ul>
-                                          <li>2hr 00mins</li>
+                                          <li><?php echo $film['Duree_Film']; ?> mins</li>
                                           <li>
-                                             <a href="action.html"><span>Action</span></a>
+                                          <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                           </li>
                                        </ul>
                                     </div>
@@ -558,7 +544,7 @@ require_once("connexion.php")
                      data-loop="true" data-margin="30">
                      <?php
                      // Préparation et exécution de la requête SQL
-                     $stmt = $db->prepare("SELECT Nom_Film, Couverture_Film, Genre_Film, Synopsis_Film, Background_Film, Duree_Film, Annee_Parution_Film FROM film WHERE Genre_Film ='Science-fiction'");
+                     $stmt = $db->prepare("SELECT Nom_Film, Couverture_Film, Genre_Film, Synopsis_Film, Background_Film, Duree_Film, Annee_Parution_Film FROM film WHERE Genre_Film ='Animation'");
                      $stmt->execute();
                      $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
                      foreach ($films as $film) :
@@ -578,7 +564,7 @@ require_once("connexion.php")
                                           <li><?php echo $film['Duree_Film']; ?> min</li>
                                           <li><?php echo $film['Annee_Parution_Film']; ?></li>
                                           <li>
-                                             <a href="#"><span><?php echo $film['Genre_Film']; ?></span></a>
+                                             <?php echo $film['Genre_Film']; ?>
                                           </li>
                                        </ul>
                                        <p><?php echo $film['Synopsis_Film']; ?></p>
@@ -688,9 +674,9 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-meta-holder">
                                        <ul>
-                                          <li>2hr 00mins</li>
+                                          <li><?php echo $film['Duree_Film']; ?> mins</li>
                                           <li>
-                                             <a href="action.html"><span>Action</span></a>
+                                          <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                           </li>
                                        </ul>
                                     </div>
