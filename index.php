@@ -363,28 +363,38 @@ require_once("connexion.php")
    </section>
    <!-- owl-carousel Videos Section-2 End -->
 
-   <!-- Slick Slider start -->
-   <section class="gen-section-padding-2 pt-0 pb-0">
-      <div class="container">
-         <div class="home-singal-silder">
-            <div class="gen-nav-movies gen-banner-movies">
-               <div class="row">
-                  <div class="col-lg-12">
-                     <div class="slider slider-for">
-                        <!-- Slider Items -->
-                        <div class="slider-item" style="background: url('images/background/asset-4.jpeg')">
+  <!-- Slick Slider start -->
+<section class="gen-section-padding-2 pt-0 pb-0">
+   <div class="container">
+      <div class="home-singal-silder">
+         <div class="gen-nav-movies gen-banner-movies">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="slider slider-for">
+                     <!-- Slider Items -->
+                     <?php
+                     // Préparation et exécution de la requête SQL
+                     $stmt = $db->prepare("SELECT Nom_Film, Couverture_Film, Genre_Film, Synopsis_Film, Background_Film, Duree_Film FROM film WHERE Genre_Film ='Science-fiction'");
+                     $stmt->execute();
+                     $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                     foreach ($films as $film) :
+                        $nom_background = $film['Background_Film'];
+                        $chemin_background = "images/background/Film/$nom_background";
+                     ?>
+
+                        <div class="slider-item" style="background: url('<?php echo $chemin_background; ?>');">
                            <div class="gen-slick-slider h-100">
                               <div class="gen-movie-contain h-100">
                                  <div class="container h-100">
                                     <div class="row align-items-center h-100">
                                        <div class="col-lg-6">
                                           <div class="gen-movie-info">
-                                             <h3>thieve the bank</h3>
-                                             <p>Streamlab is a long established fact that a reader will be distracted by
-                                                the readable content of a page when Streamlab at its layout Streamlab.
+                                             <h3><?php echo $film['Nom_Film']; ?></h3>
+                                             <p>
+                                                <?php echo $film['Synopsis_Film']; ?>
                                              </p>
-
                                           </div>
+
                                           <div class="gen-movie-action">
                                              <div class="gen-btn-container button-1">
                                                 <a class="gen-button" href="#" tabindex="0">
@@ -399,166 +409,42 @@ require_once("connexion.php")
                               </div>
                            </div>
                         </div>
-                        <div class="slider-item" style="background: url('images/background/asset-23.jpeg')">
-                           <div class="gen-slick-slider h-100">
-                              <div class="gen-movie-contain h-100">
-                                 <div class="container h-100">
-                                    <div class="row align-items-center h-100">
-                                       <div class="col-lg-6">
-                                          <div class="gen-movie-info">
-                                             <h3>Love your life</h3>
-                                             <p>Streamlab is a long established fact that a reader will be distracted by
-                                                the readable content of a page when Streamlab at its layout Streamlab.
-                                             </p>
-
-                                          </div>
-                                          <div class="gen-movie-action">
-                                             <div class="gen-btn-container button-1">
-                                                <a class="gen-button" href="#" tabindex="0">
-                                                   <i aria-hidden="true" class="ion ion-play"></i>
-                                                   <span class="text">Play Now</span>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                     <?php endforeach; ?>
+                     <!-- Slider Items -->
+                  </div>
+                  <div class="slider slider-nav">
+                  <?php foreach ($films as $film) : ?>
+                     <div class="slider-nav-contain">
+                        <div class="gen-nav-img">
+                           <?php
+                           $nom_background = $film['Background_Film'];
+                           $chemin_background = "images/background/Film/$nom_background";
+                           echo "<img src='$chemin_background' alt='steamlab-image'>";
+                           ?>
                         </div>
-                        <div class="slider-item" style="background: url('images/background/asset-24.jpeg')">
-                           <div class="gen-slick-slider h-100">
-                              <div class="gen-movie-contain h-100">
-                                 <div class="container h-100">
-                                    <div class="row align-items-center h-100">
-                                       <div class="col-lg-6">
-                                          <div class="gen-movie-info">
-                                             <h3>The Last Witness</h3>
-                                             <p>Streamlab is a long established fact that a reader will be distracted by
-                                                the readable content of a page when Streamlab at its layout Streamlab.
-                                             </p>
-
-                                          </div>
-                                          <div class="gen-movie-action">
-                                             <div class="gen-btn-container button-1">
-                                                <a class="gen-button" href="#" tabindex="0">
-                                                   <i aria-hidden="true" class="ion ion-play"></i>
-                                                   <span class="text">Play Now</span>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="slider-item" style="background: url('images/background/asset-25.jpeg')">
-                           <div class="gen-slick-slider h-100">
-                              <div class="gen-movie-contain h-100">
-                                 <div class="container h-100">
-                                    <div class="row align-items-center h-100">
-                                       <div class="col-lg-6">
-                                          <div class="gen-movie-info">
-                                             <h3>Fight For Life</h3>
-                                             <p>Streamlab is a long established fact that a reader will be distracted by
-                                                the readable content of a page when Streamlab at its layout Streamlab.
-                                             </p>
-
-                                          </div>
-                                          <div class="gen-movie-action">
-                                             <div class="gen-btn-container button-1">
-                                                <a class="gen-button" href="#" tabindex="0">
-                                                   <i aria-hidden="true" class="ion ion-play"></i>
-                                                   <span class="text">Play Now</span>
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- Slider Items -->
-                     </div>
-                     <div class="slider slider-nav">
-                        <div class="slider-nav-contain">
-                           <div class="gen-nav-img">
-                              <img src="images/background/asset-4.jpeg" alt="steamlab-image">
-                           </div>
-                           <div class="movie-info">
-                              <h3>thieve the bank</h3>
-                              <div class="gen-movie-meta-holder">
-                                 <ul>
-                                    <li>30mins</li>
-                                    <li>
-                                       <a href="action.html">
-                                          Action </a>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="slider-nav-contain">
-                           <div class="gen-nav-img">
-                              <img src="images/background/asset-23.jpeg" alt="streamlab-image">
-                           </div>
-                           <div class="movie-info">
-                              <h3>Love your life</h3>
-                              <div class="gen-movie-meta-holder">
-                                 <ul>
-                                    <li>1hr 46mins</li>
-                                    <li>
-                                       <a href="action.html">
-                                          Action </a>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="slider-nav-contain">
-                           <div class="gen-nav-img">
-                              <img src="images/background/asset-24.jpeg" alt="streamlab-image">
-                           </div>
-                           <div class="movie-info">
-                              <h3>The Last Witness</h3>
-                              <div class="gen-movie-meta-holder">
-                                 <ul>
-                                    <li>1hr 37 mins</li>
-                                    <li>
-                                       <a href="action.html">
-                                          Action </a>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="slider-nav-contain">
-                           <div class="gen-nav-img">
-                              <img src="images/background/asset-25.jpeg" alt="streamlab-image">
-                           </div>
-                           <div class="movie-info">
-                              <h3>Fight For Life</h3>
-                              <div class="gen-movie-meta-holder">
-                                 <ul>
-                                    <li>2hr 25 mins</li>
-                                    <li>
-                                       <a href="action.html">
-                                          Action </a>
-                                    </li>
-                                 </ul>
-                              </div>
+                        <div class="movie-info">
+                           <h3><?php echo $film['Nom_Film']; ?></h3>
+                           <div class="gen-movie-meta-holder">
+                              <ul>
+                                 <li><?php echo $film['Duree_Film']; ?></li>
+                                 <li>
+                                    <a href="action.html">
+                                       <?php echo $film['Genre_Film']; ?>
+                                    </a>
+                                 </li>
+                              </ul>
                            </div>
                         </div>
                      </div>
+                  <?php endforeach; ?>
                   </div>
                </div>
             </div>
          </div>
       </div>
-   </section>
-   <!-- Slick Slider End -->
+   </div>
+</section>
+<!-- Slick Slider End -->
 
     <!-- owl-carousel Videos Section-3 Start -->
     <section class="gen-section-padding-2">
@@ -585,7 +471,7 @@ require_once("connexion.php")
                      data-loop="false" data-margin="30">
                      <?php
                                 // Préparation et exécution de la requête SQL
-                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film FROM film WHERE Genre_Film ='Science-fiction'");
+                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film, Duree_Film FROM film WHERE Genre_Film ='Science-fiction'");
 
                                 // Récupération des résultats dans un tableau associatif
                                 $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -670,25 +556,32 @@ require_once("connexion.php")
                   <div class="owl-carousel owl-loaded owl-drag" data-dots="true" data-nav="false" data-desk_num="1"
                      data-lap_num="1" data-tab_num="1" data-mob_num="1" data-mob_sm="1" data-autoplay="true"
                      data-loop="true" data-margin="30">
-                     <div class="item" style="background: url('images/background/asset-20.jpeg')">
+                     <?php
+                     // Préparation et exécution de la requête SQL
+                     $stmt = $db->prepare("SELECT Nom_Film, Couverture_Film, Genre_Film, Synopsis_Film, Background_Film, Duree_Film, Annee_Parution_Film FROM film WHERE Genre_Film ='Science-fiction'");
+                     $stmt->execute();
+                     $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                     foreach ($films as $film) :
+                        $nom_background = $film['Background_Film'];
+                        $chemin_background = "images/background/Film/$nom_background";
+                     ?>
+                     <div class="item" style="background: url('<?php echo $chemin_background; ?>');">
                         <div class="gen-movie-contain h-100">
                            <div class="container h-100">
                               <div class="row align-items-center h-100">
                                  <div class="col-xl-6">
                                     <div class="gen-movie-info">
-                                       <h3>Command in your hand</h3>
+                                       <h3><?php echo $film['Nom_Film']; ?></h3>
                                     </div>
                                     <div class="gen-movie-meta-holder">
                                        <ul>
-                                          <li>1 Season</li>
-                                          <li>3 Episode</li>
-                                          <li>2013</li>
+                                          <li><?php echo $film['Duree_Film']; ?> min</li>
+                                          <li><?php echo $film['Annee_Parution_Film']; ?></li>
                                           <li>
-                                             <a href="#"><span>Comedy</span></a>
+                                             <a href="#"><span><?php echo $film['Genre_Film']; ?></span></a>
                                           </li>
                                        </ul>
-                                       <p>Streamlab is a long established fact that a reader will be distracted by the
-                                          readable content of a page when Streamlab at its layout Streamlab.</p>
+                                       <p><?php echo $film['Synopsis_Film']; ?></p>
                                     </div>
                                     <div class="gen-movie-action">
                                        <div class="gen-btn-container">
@@ -702,70 +595,7 @@ require_once("connexion.php")
                            </div>
                         </div>
                      </div>
-                     <div class="item" style="background: url('images/background/asset-21.jpeg')">
-                        <div class="gen-movie-contain h-100">
-                           <div class="container  h-100">
-                              <div class="row align-items-center h-100">
-                                 <div class="col-xl-6">
-                                    <div class="gen-movie-info">
-                                       <h3>stories of the dark</h3>
-                                    </div>
-                                    <div class="gen-movie-meta-holder">
-                                       <ul>
-                                          <li>1 Season</li>
-                                          <li>5 Episode</li>
-                                          <li>2015 to 2016</li>
-                                          <li>
-                                             <a href="#"><span>Biography</span></a>
-                                          </li>
-                                       </ul>
-                                       <p>Streamlab is a long established fact that a reader will be distracted by the
-                                          readable content of a page when Streamlab at its layout Streamlab.</p>
-                                    </div>
-                                    <div class="gen-movie-action">
-                                       <div class="gen-btn-container button-1">
-                                          <a href="single-episode.html" class="gen-button gen-button-dark">
-                                             <span class="text">Play now</span>
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item" style="background: url('images/background/asset-37.jpeg')">
-                        <div class="gen-movie-contain h-100">
-                           <div class="container  h-100">
-                              <div class="row align-items-center h-100">
-                                 <div class="col-xl-6">
-                                    <div class="gen-movie-info">
-                                       <h3>Against Beast</h3>
-                                    </div>
-                                    <div class="gen-movie-meta-holder">
-                                       <ul>
-                                          <li>1 Season</li>
-                                          <li>1 Episode</li>
-                                          <li>2017 to 2018</li>
-                                          <li>
-                                             <a href="#"><span>Drama</span></a>
-                                          </li>
-                                       </ul>
-                                       <p>Streamlab is a long established fact that a reader will be distracted by the
-                                          readable content of a page when Streamlab at its layout Streamlab.</p>
-                                    </div>
-                                    <div class="gen-movie-action">
-                                       <div class="gen-btn-container button-1">
-                                          <a href="single-episode.html" class="gen-button gen-button-dark">
-                                             <span class="text">Play now</span>
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                     <?php endforeach; ?>
                   </div>
                </div>
             </div>
@@ -799,7 +629,7 @@ require_once("connexion.php")
                      data-loop="false" data-margin="30">
                      <?php
                                 // Préparation et exécution de la requête SQL
-                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film FROM film WHERE Genre_Film ='Thriller'");
+                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film, Duree_Film FROM film WHERE Genre_Film ='Thriller'");
 
                                 // Récupération des résultats dans un tableau associatif
                                 $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
