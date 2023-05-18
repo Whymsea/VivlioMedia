@@ -17,7 +17,7 @@
 
                         <!--========== Menu Film ==============-->
                           <li class="menu-item active">
-                             <a href="#" aria-current="page">Film</a>
+                             <a href="index.php" aria-current="page">Film</a>
                              <i class="fa fa-chevron-down gen-submenu-icon"></i>
 
                              <!--========== Sous-Menu ==============-->
@@ -49,17 +49,9 @@
                                       </li>
                                       <!--========== Catégorie 6 ==============-->
                                       <li class="menu-item">
-                                         <a href="Genre_Film.php?Genre_Film=Fantasy">Fantasy</a>
-                                      </li>
-                                      <!--========== Catégorie 7 ==============-->
-                                      <li class="menu-item">
-                                         <a href="Genre_Film.php?Genre_Film=Policier">Policier</a>
-                                      </li>
-                                      <!--========== Catégorie 8 ==============-->
-                                      <li class="menu-item">
                                          <a href="Genre_Film.php?Genre_Film=Science-fiction">Science Fiction</a>
                                       </li>
-                                      <!--========== Catégorie 9 ==============-->
+                                      <!--========== Catégorie 7 ==============-->
                                       <li class="menu-item">
                                          <a href="Genre_Film.php?Genre_Film=Thriller">Thriller</a>
                                       </li>
@@ -80,7 +72,7 @@
                           <!--========== Menu Livres ==============-->
 
                           <li class="menu-item">
-                             <a href="tv-shows-home.html">Livre</a>
+                             <a href="Livre.php">Livre</a>
                              <i class="fa fa-chevron-down gen-submenu-icon"></i>
                              
                              <!--========== Sous-Menu ==============-->

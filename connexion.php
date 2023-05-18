@@ -2,23 +2,26 @@
 
 function Connexion()
 {
-$hostname = 'localhost'; /*** mysql hostname ***/
-$username = 'root'; /*** mysql username ***/
-$password = 'root'; /*** mysql password ***/
-$db = 'vivi'; /*** mysql database ***/
-// Data Source Name
-$dsn = "mysql:host=$hostname;dbname=$db";
-try {
-$bdd = new PDO($dsn, $username, $password);
-$bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $hostname = 'localhost'; /*** mysql hostname ***/
+    $username = 'root'; /*** mysql username ***/
+    $password = 'root'; /*** mysql password ***/
+    $db = 'vivi'; /*** mysql database ***/
 
-return $bdd;
+    // Data Source Name
+    $dsn = "mysql:host=$hostname;dbname=$db";
+    try {
+        $bdd = new PDO($dsn, $username, $password);
+        $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        
+        $bdd->exec("SET NAMES 'utf8'"); // Configuration de l'encodage UTF-8
+        
+        return $bdd;
+    }
+    catch(PDOException $e) {
+        echo "Erreur de connection ! </br>";
+        echo $e->getMessage();
+    }
 }
-catch(PDOException $e)
-{
-echo "Erreur de connection ! </br>";
-echo $e->getMessage();
-}
-}
-$db = connexion();
+
+$db = Connexion();
 ?>

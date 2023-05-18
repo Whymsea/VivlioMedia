@@ -4448,10 +4448,16 @@ Carousel Movies
 }
 
 /*===== Carousel Movies 2 =====*/
-.gen-carousel-movies-style-2 {
+.gen-carousel-movies-style-3 {
     margin-bottom: 30px;
     display: inline-block;
     width: 220px;
+}
+
+.gen-carousel-movies-style-2 {
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 397px;
 }
 
 .gen-carousel-movies-style-2 .gen-movie-contain {
