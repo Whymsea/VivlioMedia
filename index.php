@@ -114,9 +114,9 @@ require_once("connexion.php")
                         </div>
                         <div class="gen-movie-action">
                           <div class="gen-btn-container">
-                            <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button .gen-button-dark"><i class="fa fa-play"></i></a>
-                              <i aria-hidden="true" class="fas fa-play"></i> <span class="text">Play
-                                Now</span>
+                            <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button .gen-button-dark"><i aria-hidden="true" class="fas fa-play"></i> <span class="text">Play
+                                Now</span></a>
+                              
                             </a>
                           </div>
                         </div>
@@ -146,7 +146,7 @@ require_once("connexion.php")
             <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                <div class="gen-movie-action">
                   <div class="gen-btn-container text-right">
-                     <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                     <a href="Genre_Film.php?Genre_Film=Drame" class="gen-button gen-button-flat">
                         <span class="text">More Videos</span>
                      </a>
                   </div>
@@ -169,7 +169,7 @@ require_once("connexion.php")
                                 $nom_image = $film['Couverture_Film'];
                                 $chemin_image = "images/couvertures/Film/$nom_image";
                                 ?>
-                     <div class="item">
+                      <div class="item">
                         <div
                            class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
                            <div class="gen-carousel-movies-style-3 movie-grid style-2">
@@ -209,18 +209,18 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-action">
                                     <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button"><i class="fa fa-play"></i></a>
-                                          <i class="fa fa-play"></i>
-                                       </a>
                                     </div>
                                  </div>
                                  <div class="gen-info-contain">
                                     <div class="gen-movie-info">
-                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><i class="fa fa-play"></i> <?php echo $film['Nom_Film']; ?></a>
-                                       </h3>
+                                    <h3>
+                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><?php echo $film['Nom_Film']; ?></a>
+                                    </h3>
+
                                     </div>
                                     <div class="gen-movie-meta-holder">
                                        <ul>
-                                          <li><?php echo $film['Duree_Film'];?> mins</li>
+                                          <li><?php echo $film['Duree_Film']; ?> min</li>
                                           <li>
                                           <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                           </li>
@@ -246,7 +246,7 @@ require_once("connexion.php")
             <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                <div class="gen-movie-action">
                   <div class="gen-btn-container text-right">
-                     <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                  <a href="Genre_Film.php?Genre_Film=Aventure" class="gen-button gen-button-flat">
                         <span class="text">More Videos</span>
                      </a>
                   </div>
@@ -309,14 +309,12 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-action">
                                     <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button"><i class="fa fa-play"></i></a>
-                                          <i class="fa fa-play"></i>
-                                       </a>
                                     </div>
                                  </div>
                                  <div class="gen-info-contain">
                                     <div class="gen-movie-info">
                                     <h3>
-                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><i class="fa fa-play"></i> <?php echo $film['Nom_Film']; ?></a>
+                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><?php echo $film['Nom_Film']; ?></a>
                                     </h3>
 
                                     </div>
@@ -435,7 +433,7 @@ require_once("connexion.php")
             <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                <div class="gen-movie-action">
                   <div class="gen-btn-container text-right">
-                     <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                  <a href="Genre_Film.php?Genre_Film=Science-fiction" class="gen-button gen-button-flat">
                         <span class="text">More Videos</span>
                      </a>
                   </div>
@@ -498,14 +496,12 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-action">
                                     <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button"><i class="fa fa-play"></i></a>
-                                          <i class="fa fa-play"></i>
-                                       </a>
                                     </div>
                                  </div>
                                  <div class="gen-info-contain">
                                     <div class="gen-movie-info">
                                        <h3>
-                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><i class="fa fa-play"></i> <?php echo $film['Nom_Film']; ?></a>
+                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><?php echo $film['Nom_Film']; ?></a>
                                        </h3>
                                     </div>
                                     <div class="gen-movie-meta-holder">
@@ -537,7 +533,7 @@ require_once("connexion.php")
                      data-loop="true" data-margin="30">
                      <?php
                      // Préparation et exécution de la requête SQL
-                     $stmt = $db->prepare("SELECT Nom_Film, Couverture_Film, Genre_Film, Synopsis_Film, Background_Film, Duree_Film, Annee_Parution_Film FROM film WHERE Genre_Film ='Animation'");
+                     $stmt = $db->prepare("SELECT * FROM film WHERE Genre_Film ='Animation'");
                      $stmt->execute();
                      $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
                      foreach ($films as $film) :
@@ -564,7 +560,7 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-action">
                                        <div class="gen-btn-container">
-                                          <a href="single-episode.html" class="gen-button gen-button-dark">
+                                       <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button gen-button-dark">
                                              <span class="text">Play now</span>
                                           </a>
                                        </div>
@@ -593,7 +589,7 @@ require_once("connexion.php")
             <div class="col-xl-6 col-lg-6 col-md-6 d-none d-md-inline-block">
                <div class="gen-movie-action">
                   <div class="gen-btn-container text-right">
-                     <a href="tv-shows-pagination.html" class="gen-button gen-button-flat">
+                     <a href="Genre_Film.php?Genre_Film=Thriller" class="gen-button gen-button-flat">
                         <span class="text">More Videos</span>
                      </a>
                   </div>
@@ -607,16 +603,16 @@ require_once("connexion.php")
                      data-lap_num="3" data-tab_num="2" data-mob_num="1" data-mob_sm="1" data-autoplay="false"
                      data-loop="false" data-margin="30">
                      <?php
-                                // Préparation et exécution de la requête SQL
-                                $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film, Duree_Film FROM film WHERE Genre_Film ='Thriller'");
+                                 // Préparation et exécution de la requête SQL
+                                 $stmt = $db->query("SELECT Nom_Film, Couverture_Film, Genre_Film, Duree_Film FROM film WHERE Genre_Film ='Thriller'");
 
-                                // Récupération des résultats dans un tableau associatif
-                                $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                 // Récupération des résultats dans un tableau associatif
+                                 $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                  foreach ($films as $film) : 
                                 $nom_image = $film['Couverture_Film'];
                                 $chemin_image = "images/couvertures/Film/$nom_image";
                                 ?>
-                     <div class="item">
+                      <div class="item">
                         <div
                            class="movie type-movie status-publish has-post-thumbnail hentry movie_genre-action movie_genre-adventure movie_genre-drama">
                            <div class="gen-carousel-movies-style-3 movie-grid style-2">
@@ -656,13 +652,12 @@ require_once("connexion.php")
                                     </div>
                                     <div class="gen-movie-action">
                                     <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button"><i class="fa fa-play"></i></a>
-                                          <i class="fa fa-play"></i>
-                                       </a>
                                     </div>
                                  </div>
                                  <div class="gen-info-contain">
                                     <div class="gen-movie-info">
-                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><i class="fa fa-play"></i> <?php echo $film['Nom_Film']; ?></a>
+                                       <h3>
+                                    <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><?php echo $film['Nom_Film']; ?></a>
                                        </h3>
                                     </div>
                                     <div class="gen-movie-meta-holder">

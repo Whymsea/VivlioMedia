@@ -66,7 +66,7 @@ if (isset($_GET['Genre_Film'])) {
                         <div class="gen-breadcrumb-container">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php"><i
-                                            class="fas fa-home mr-2"></i>Home</a></li>
+                                            class="fas fa-home mr-2"></i>Film</a></li>
                                 <li class="breadcrumb-item active"><?php echo $genre_film ?></li>
                             </ol>
                         </div>
@@ -128,18 +128,18 @@ if (isset($_GET['Genre_Film'])) {
                                             </div>
                                         </div>
                                         <div class="gen-movie-action">
-                                            <a href="single-movie.html" class="gen-button">
+                                        <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>" class="gen-button">
                                                 <i class="fa fa-play"></i>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="gen-info-contain">
                                         <div class="gen-movie-info">
-                                            <h3><a href="single-movie.html"><?php echo $film['Nom_Film']; ?></a></h3>
+                                            <h3><a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><?php echo $film['Nom_Film']; ?></a></h3>
                                         </div>
                                         <div class="gen-movie-meta-holder">
                                             <ul>
-                                                <li>2hr 00mins</li>
+                                                <li><?php echo $film['Duree_Film']; ?> mins</li>
                                             </ul>
                                         </div>
                                     </div>
