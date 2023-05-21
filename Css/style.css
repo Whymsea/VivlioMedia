@@ -6359,7 +6359,9 @@ Icon-Box
     line-height: 100px;
     font-size: 50px;
 }
-
+.item{
+    width: 230px;
+}
 .gen-icon-box-style-1 .gen-icon-box-content .gen-icon-box-description {
     color: #FFFFFF;
     font-family: var(--body-fonts);
