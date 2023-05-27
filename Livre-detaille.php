@@ -20,11 +20,7 @@ if (isset($_GET['Livre'])) {
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Streamlab - Video Streaming HTML5 Template" />
-    <meta name="description" content="Streamlab - Video Streaming HTML5 Template" />
-    <meta name="author" content="StreamLab" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Streamlab - Video Streaming HTML5 Template</title>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico">
     <!-- CSS bootstrap-->
@@ -94,15 +90,15 @@ if (isset($_GET['Livre'])) {
                                             </li>
                                             <li>
                                                 <span>Auteur :</span>
-                                                <span><?php echo $livre['Auteur_Livre']?></span>
+                                                <a href="Auteur_Exemple_Nom.php?Auteur=<?php echo $livre['Auteur_Livre']; ?>"><span><?php echo $livre['Auteur_Livre']; ?></span></a>
                                             </li>
                                             <li>
                                                 <span>Genre :</span>
                                                 <span>
-                                                    <a href="action.html"><?php echo $livre['Genre_Livre']?></a>
+                                                <a href="Genre_Livre.php?Genre_Livre=<?php echo $livre['Genre_Livre']; ?>"><span><?php echo $livre['Genre_Livre']; ?></span></a>
                                                 </span>
                                                 <span>
-                                                    <a href="adventure.html"><?php echo $livre['Theme_Livre']?></a>
+                                                <?php echo $livre['Theme_Livre']?>
                                                 </span>
                                             </li>
                                             <li>
@@ -208,12 +204,12 @@ if (isset($_GET['Livre'])) {
                                                                 <h3><a href="movies-home.html"><?php echo $livre['Nom_livre']; ?></a></h3>
                                                             </div>
                                                             <div class="gen-movie-meta-holder">
-                                                                <ul>
-                                                                    <li>2hr 00mins</li>
-                                                                    <li>
-                                                                        <a href="action.html"><span>Action</span></a>
-                                                                    </li>
-                                                                </ul>
+                                                            <ul>
+                                                                <li><?php echo $livre['Nmbre_Page_Livre']; ?> pages</li>
+                                                                <li>
+                                                                <a href="Genre_Livre.php?Genre_Livre=<?php echo $livre['Genre_Livre']; ?>"><span><?php echo $livre['Genre_Livre']; ?></span></a>
+                                                                </li>
+                                                            </ul>
                                                             </div>
                                                         </div>
                                                     </div>

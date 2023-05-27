@@ -93,7 +93,7 @@
         <div class="container">
            <div class="row">
               <div class="col-md-12 align-self-center">
-                 <span class="gen-copyright"><a target="_blank" href="#"> Copyright 2021 stremlab All Rights
+                 <span class="gen-copyright"><a target="_blank" href="#"> Copyright 2021 Streaming All Rights
                        Reserved.</a></span>
               </div>
            </div>

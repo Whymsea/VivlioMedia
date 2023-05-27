@@ -23,11 +23,6 @@ if (isset($_GET['Genre_Film'])) {
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hostingo HTML5 Template" />
-    <meta name="description" content="Hostingo Html5 template" />
-    <meta name="author" content="Hostingo" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Hostingo HTML5 Template</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico">
     <!-- CSS bootstrap-->
