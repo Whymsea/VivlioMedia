@@ -90,7 +90,7 @@ if (isset($_GET['Livre'])) {
                                             </li>
                                             <li>
                                                 <span>Auteur :</span>
-                                                <a href="Auteur_Exemple_Nom.php?Auteur=<?php echo $livre['Auteur_Livre']; ?>"><span><?php echo $livre['Auteur_Livre']; ?></span></a>
+                                                <a href="Auteur.php?Auteur=<?php echo $livre['Auteur_Livre']; ?>"><span><?php echo $livre['Auteur_Livre']; ?></span></a>
                                             </li>
                                             <li>
                                                 <span>Genre :</span>
