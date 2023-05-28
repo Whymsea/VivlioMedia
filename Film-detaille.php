@@ -204,7 +204,7 @@ if (isset($_GET['film'])) {
                                                                 </div>
                                                             </div>
                                                             <div class="gen-movie-action">
-                                                                <a href="movies-home.html" class="gen-button">
+                                                            <a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"class="gen-button">
                                                                     <i class="fa fa-play"></i>
                                                                 </a>
                                                             </div>

@@ -201,8 +201,9 @@ if (isset($_GET['Livre'])) {
                                                         </div>
                                                         <div class="gen-info-contain">
                                                             <div class="gen-movie-info">
-                                                                <h3><a href="movies-home.html"><?php echo $livre['Nom_livre']; ?></a></h3>
-                                                            </div>
+                                                            <h3>
+                                                            <a href="Livre-detaille.php?Livre=<?php echo urlencode($livre['Nom_livre']); ?>"><?php echo $livre['Nom_livre']; ?></a>
+                                                            </h3>
                                                             <div class="gen-movie-meta-holder">
                                                             <ul>
                                                                 <li><?php echo $livre['Nmbre_Page_Livre']; ?> pages</li>

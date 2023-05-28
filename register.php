@@ -72,6 +72,7 @@ require_once("connexion.php")
                             <span id="pms-submit-button-loading-placeholder-text" class="d-none">Processing. Please
                                 wait...</span>
                             <input name="pms_register" type="submit" value="Register">
+                            <input type="hidden" name="pms_login" value="1"><input type="hidden" name="pms_redirect"><a href="login.php">Se connecter</a>
                         </form>
                     </div>
                 </div>
