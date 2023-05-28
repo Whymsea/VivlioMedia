@@ -84,9 +84,13 @@ require_once("connexion.php")
                           </p>
                           <div class="gen-meta-info">
                             <ul class="gen-meta-after-excerpt">
+                            <li>
+                                <strong>Realisateur :</strong>
+                                <a href="Realisateur.php?Realisateur=<?php echo $film['Realisateurs_Film']; ?>"><span><?php echo $film['Realisateurs_Film']; ?></span></a> 
+                              </li>
                               <li>
                                 <strong>Cast :</strong>
-                                <?php echo $film['Acteur1_Film']; ?>, <?php echo $film['Acteur2_Film']; ?>
+                                <a href="Acteur.php?Acteur=<?php echo $film['Acteur1_Film']; ?>"><span><?php echo $film['Acteur1_Film']; ?></span></a>, <a href="Acteur.php?Acteur=<?php echo $film['Acteur2_Film']; ?>"><span><?php echo $film['Acteur2_Film']; ?></span></a>
                               </li>
                               <li>
                                 <strong>Genre :</strong>

@@ -136,10 +136,6 @@
                                       </li>
                                        <!--========== Catégorie 14 ==============-->
                                        <li class="menu-item">
-                                         <a href="Genre_Livre.php?Genre_Livre=Suspence">Suspence</a>
-                                      </li>
-                                       <!--========== Catégorie 15 ==============-->
-                                       <li class="menu-item">
                                          <a href="Genre_Livre.php?Genre_Livre=Thriller">Thriller</a>
                                       </li>
                                    </ul>

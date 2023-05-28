@@ -86,8 +86,8 @@ require_once("connexion.php")
                           <div class="gen-meta-info">
                             <ul class="gen-meta-after-excerpt">
                               <li>
-                                <strong>Auteur :</strong>
-                                <?php echo $livre['Auteur_Livre']; ?>
+                                 <strong>Auteur :</strong>
+                                 <a href="Auteur.php?Auteur=<?php echo $livre['Auteur_Livre']; ?>"><span><?php echo $livre['Auteur_Livre']; ?></span></a>
                               </li>
                               <li>
                                 <strong>Genre :</strong>

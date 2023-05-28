@@ -2,19 +2,26 @@
 // Connexion à la base de données
 require_once("connexion.php");
 
-// Vérifier si un genre a été sélectionné dans l'URL
 if (isset($_GET['film'])) {
-
     $nomFilm = urldecode($_GET['film']);
-  // Construire la requête SQL en fonction du genre sélectionné
-  $requete = "SELECT * FROM film WHERE Nom_Film ='$nomFilm'";
-
-  // Exécuter la requête SQL et récupérer les résultats
-  $resultats = $db->query($requete)->fetchAll(PDO::FETCH_ASSOC);
+    // Construire la requête SQL en fonction du film sélectionné
+    $requete = "SELECT * FROM film WHERE Nom_Film = :nomFilm";
+    
+    // Préparer la requête SQL
+    $stmt = $db->prepare($requete);
+    
+    // Lié le paramètre nomFilm à la variable $nomFilm
+    $stmt->bindParam(':nomFilm', $nomFilm);
+    
+    // Exécuter la requête SQL
+    $stmt->execute();
+    
+    // Récupérer les résultats
+    $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } else {
-  // Si aucun genre n'a été sélectionné, afficher un message d'erreur
-  echo "Aucun nom sélectionné";
-  exit;
+    // Si aucun film n'a été sélectionné, afficher un message d'erreur
+    echo "Aucun nom sélectionné";
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -81,6 +88,14 @@ if (isset($_GET['film'])) {
                                     <div class="gen-after-excerpt">
                                         <div class="gen-extra-data">
                                             <ul>
+                                            <li>
+                                                <span>Realisateur :</span>
+                                                <a href="Realisateur.php?Realisateur=<?php echo $film['Realisateurs_Film']; ?>"><span><?php echo $film['Realisateurs_Film']; ?></span></a> 
+                                                </li>
+                                                <li>
+                                                <span>Cast :</span>
+                                                <a href="Acteur.php?Acteur=<?php echo $film['Acteur1_Film']; ?>"><span><?php echo $film['Acteur1_Film']; ?></span></a>, <a href="Acteur.php?Acteur=<?php echo $film['Acteur2_Film']; ?>"><span><?php echo $film['Acteur2_Film']; ?></span></a>
+                                                </li>
                                                 <li>
                                                     <span>Langue:</span>
                                                     <span><?php echo $film['Langue_Film']?></span>
@@ -95,12 +110,10 @@ if (isset($_GET['film'])) {
                                                 </li>
                                                 <li><span>Genre :</span>
                                                     <span>
-                                                        <a href="action.html">
-                                                        <?php echo $film['Genre_Film']?> </a>
+                                                    <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                                     </span>
                                                     <span>
-                                                        <a href="adventure.html">
-                                                        <?php echo $film['Theme_Film']?> </a>
+                                                        <?php echo $film['Theme_Film']?> 
                                                     </span>
                                                 </li>
                                                 <li><span>Durée du film :</span>
@@ -198,13 +211,13 @@ if (isset($_GET['film'])) {
                                                         </div>
                                                         <div class="gen-info-contain">
                                                             <div class="gen-movie-info">
-                                                                <h3><a href="movies-home.html"><?php echo $film['Nom_Film']; ?></a></h3>
+                                                                <h3><a href="Film-detaille.php?film=<?php echo urlencode($film['Nom_Film']); ?>"><?php echo $film['Nom_Film']; ?></a></h3>
                                                             </div>
                                                             <div class="gen-movie-meta-holder">
                                                                 <ul>
-                                                                    <li>2hr 00mins</li>
+                                                                    <li><?php echo $film['Duree_Film']; ?> mins</li>
                                                                     <li>
-                                                                        <a href="action.html"><span>Action</span></a>
+                                                                    <a href="Genre_Film.php?Genre_Film=<?php echo $film['Genre_Film']; ?>"><span><?php echo $film['Genre_Film']; ?></span></a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
