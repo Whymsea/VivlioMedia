@@ -6,12 +6,31 @@ require_once("connexion.php");
 if (isset($_GET['Livre'])) {
     $nomLivre = urldecode($_GET['Livre']);
     // Construire la requête SQL en fonction du livre sélectionné
-    $requete = "SELECT * FROM livre WHERE Nom_livre ='$nomLivre'";
-    // Exécuter la requête SQL et récupérer les résultats
-    $resultats = $db->query($requete)->fetchAll(PDO::FETCH_ASSOC);
+    $requete = "SELECT * FROM livre WHERE Nom_Livre = :nomLivre";
+
+    // Préparer la requête SQL
+    $stmt = $db->prepare($requete);
+
+    // Lié le paramètre nomLivre à la variable $nomLivre
+    $stmt->bindParam(':nomLivre', $nomLivre);
+
+    // Exécuter la requête SQL
+    $stmt->execute();
+
+    // Récupérer les résultats
+    $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Vérifier si des résultats ont été trouvés
+    if (count($resultats) > 0) {
+        // Afficher les détails du livre
+        // ...
+    } else {
+        // Si aucun livre n'a été trouvé, afficher un message d'erreur
+        echo "Aucun livre trouvé";
+    }
 } else {
     // Si aucun livre n'a été sélectionné, afficher un message d'erreur
-    echo "Aucun livre sélectionné";
+    echo "Aucun nom de livre sélectionné";
     exit;
 }
 ?>
@@ -130,110 +149,120 @@ if (isset($_GET['Livre'])) {
                             </div>
                             <?php endforeach; ?>
 
-                            <div class="col-lg-12">
-                                <div class="pm-inner">
-                                    <div class="gen-more-like">
-                                        <h5 class="gen-more-title">Proche de ce livre</h5>
-                                        <div class="row">
-                                        <?php
-                                            // Préparation et exécution de la requête SQL
-                                            $stmt = $db->prepare("SELECT * FROM livre WHERE Genre_Livre = :genre AND Nom_livre != :nom");
-                                            $stmt->bindValue(':genre', $livre['Genre_Livre']);
-                                            $stmt->bindValue(':nom',   $livre['Nom_livre']);
-                                            $stmt->execute();
-                                            $livres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            <!--Code formulaire pour les commentaires :
+                                 formulaire de commentaire 
+<form action="traitement_commentaire.php" method="post">
+  <h3>Laissez un commentaire :</h3>
+  
+    // Vérifie si l'utilisateur est connecté
+    $utilisateur_connecte = false; // Remplacez cette valeur par votre vérification réelle
 
-                                            foreach ($livres as $livre) : 
-                                            $nom_image = $livre['Couverture_Livre'];
-                                            $chemin_image = "images/couvertures/Livre/$nom_image";
-                                        ?>
-                                            <div class="col-xl-3 col-lg-4 col-md-6">
-                                                <div class="gen-carousel-movies-style-3 movie-grid style-3">
-                                                    <div class="gen-movie-contain">
-                                                        <div class="gen-movie-img">
-                                                          <?php echo "<img src='$chemin_image'  alt='owl-carousel-video-image'>" ?>
-                                                            <div class="gen-movie-add">
-                                                                <div class="wpulike wpulike-heart">
-                                                                    <div
-                                                                        class="wp_ulike_general_class wp_ulike_is_not_liked">
-                                                                        <button type="button"
-                                                                            class="wp_ulike_btn wp_ulike_put_image"></button>
-                                                                    </div>
-                                                                </div>
-                                                                <ul class="menu bottomRight">
-                                                                    <li class="share top">
-                                                                        <i class="fa fa-share-alt"></i>
-                                                                        <ul class="submenu">
-                                                                            <li><a href="#" class="facebook"><i
-                                                                                        class="fab fa-facebook-f"></i></a>
-                                                                            </li>
-                                                                            <li><a href="#" class="facebook"><i
-                                                                                        class="fab fa-instagram"></i></a>
-                                                                            </li>
-                                                                            <li><a href="#" class="facebook"><i
-                                                                                        class="fab fa-twitter"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                                <div
-                                                                    class="movie-actions--link_add-to-playlist dropdown">
-                                                                    <a class="dropdown-toggle" href="#"
-                                                                        data-toggle="dropdown"><i
-                                                                            class="fa fa-plus"></i></a>
-                                                                    <div class="dropdown-menu mCustomScrollbar">
-                                                                        <div class="mCustomScrollBox">
-                                                                            <div class="mCSB_container">
-                                                                                <a class="login-link" href="#">Sign in
-                                                                                    to add this movie to
-                                                                                    a
-                                                                                    playlist.</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="gen-movie-action">
-                                                                <a href="movies-home.html" class="gen-button">
-                                                                    <i class="fa fa-play"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="gen-info-contain">
-                                                            <div class="gen-movie-info">
-                                                            <h3>
-                                                            <a href="Livre-detaille.php?Livre=<?php echo urlencode($livre['Nom_livre']); ?>"><?php echo $livre['Nom_livre']; ?></a>
-                                                            </h3>
-                                                            <div class="gen-movie-meta-holder">
-                                                            <ul>
-                                                                <li><?php echo $livre['Nmbre_Page_Livre']; ?> pages</li>
-                                                                <li>
-                                                                <a href="Genre_Livre.php?Genre_Livre=<?php echo $livre['Genre_Livre']; ?>"><span><?php echo $livre['Genre_Livre']; ?></span></a>
-                                                                </li>
-                                                            </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+    if ($utilisateur_connecte) {
+      // Affiche le formulaire de commentaire
+      echo '
+        <label for="note">Note :</label>
+        <select name="note" id="note">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+
+        <label for="commentaire">Commentaire :</label><br>
+        <textarea name="commentaire" id="commentaire" rows="4" cols="50"></textarea><br>
+
+        <input type="submit" value="Valider">
+      ';
+    } else {
+      // Affiche le message de connexion
+      echo '<p>Vous devez être connecté pour laisser un commentaire. Veuillez vous connecter ou vous inscrire.</p>';
+      echo '<a href="page_connexion.php"><button>Se connecter</button></a>';
+    }
+  ?>
+</form>
+                            -->
+<div class="col-lg-12">
+    <div class="pm-inner">
+        <div class="gen-more-like">
+            <h5 class="gen-more-title">Proche de ce livre</h5>
+            <div class="row">
+                <?php
+                // Préparation et exécution de la requête SQL
+                $stmt = $db->prepare("SELECT * FROM livre WHERE Genre_Livre = :genre AND Nom_livre != :nom");
+                $stmt->bindValue(':genre', $livre['Genre_Livre']);
+                $stmt->bindValue(':nom',   $livre['Nom_livre']);
+                $stmt->execute();
+                $livres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($livres as $livre) :
+                    $nom_image = $livre['Couverture_Livre'];
+                    $chemin_image = "images/couvertures/Livre/$nom_image";
+                ?>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="gen-carousel-movies-style-3 movie-grid style-3">
+                            <div class="gen-movie-contain">
+                                <div class="gen-movie-img">
+                                    <?php echo "<img src='$chemin_image' alt='owl-carousel-video-image'>" ?>
+                                    <div class="gen-movie-add">
+                                        <div class="wpulike wpulike-heart">
+                                            <div class="wp_ulike_general_class wp_ulike_is_not_liked">
+                                                <button type="button" class="wp_ulike_btn wp_ulike_put_image"></button>
                                             </div>
-                                            <?php endforeach; ?>
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="gen-load-more-button">
-                                                    <div class="gen-btn-container">
-                                                        <a class="gen-button gen-button-loadmore" href="#">
-                                                            <span class="button-text">Load More</span>
-                                                            <span class="loadmore-icon" style="display: none;"><i
-                                                                    class="fa fa-spinner fa-spin"></i></span>
-                                                        </a>
+                                        </div>
+                                        <ul class="menu bottomRight">
+                                            <li class="share top">
+                                                <i class="fa fa-share-alt"></i>
+                                                <ul class="submenu">
+                                                    <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="#" class="facebook"><i class="fab fa-instagram"></i></a></li>
+                                                    <li><a href="#" class="facebook"><i class="fab fa-twitter"></i></a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <div class="movie-actions--link_add-to-playlist dropdown">
+                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-plus"></i></a>
+                                            <div class="dropdown-menu mCustomScrollbar">
+                                                <div class="mCustomScrollBox">
+                                                    <div class="mCSB_container">
+                                                        <a class="login-link" href="#">Sign in to add this movie to a playlist.</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="gen-movie-action">
+                                        <a href="movies-home.html" class="gen-button">
+                                            <i class="fa fa-play"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="gen-info-contain">
+                                    <div class="gen-movie-info">
+                                        <h3>
+                                            <a href="Livre-detaille.php?Livre=<?php echo urlencode($livre['Nom_livre']); ?>"><?php echo $livre['Nom_livre']; ?></a>
+                                        </h3>
+                                        <div class="gen-movie-meta-holder">
+                                            <ul>
+                                                <li><?php echo $livre['Nmbre_Page_Livre']; ?> pages</li>
+                                                <li>
+                                                    <a href="Genre_Livre.php?Genre_Livre=<?php echo $livre['Genre_Livre']; ?>">
+                                                        <span><?php echo $livre['Genre_Livre']; ?></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 </div>

@@ -6,21 +6,30 @@ if (isset($_GET['film'])) {
     $nomFilm = urldecode($_GET['film']);
     // Construire la requête SQL en fonction du film sélectionné
     $requete = "SELECT * FROM film WHERE Nom_Film = :nomFilm";
-    
+
     // Préparer la requête SQL
     $stmt = $db->prepare($requete);
-    
+
     // Lié le paramètre nomFilm à la variable $nomFilm
     $stmt->bindParam(':nomFilm', $nomFilm);
-    
+
     // Exécuter la requête SQL
     $stmt->execute();
-    
+
     // Récupérer les résultats
     $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Vérifier si des résultats ont été trouvés
+    if (count($resultats) > 0) {
+        // Afficher les détails du film
+        // ...
+    } else {
+        // Si aucun film n'a été trouvé, afficher un message d'erreur
+        echo "Aucun film trouvé";
+    }
 } else {
     // Si aucun film n'a été sélectionné, afficher un message d'erreur
-    echo "Aucun nom sélectionné";
+    echo "Aucun nom de film sélectionné";
     exit;
 }
 ?>
@@ -140,6 +149,43 @@ if (isset($_GET['film'])) {
                             </div>
                             <?php endforeach; ?>
 
+
+       <!--Code formulaire pour les commentaires :
+                                 formulaire de commentaire 
+<form action="traitement_commentaire.php" method="post">
+  <h3>Laissez un commentaire :</h3>
+  
+    // Vérifie si l'utilisateur est connecté
+    $utilisateur_connecte = false; // Remplacez cette valeur par votre vérification réelle
+
+    if ($utilisateur_connecte) {
+      // Affiche le formulaire de commentaire
+      echo '
+        <label for="note">Note :</label>
+        <select name="note" id="note">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+
+        <label for="commentaire">Commentaire :</label><br>
+        <textarea name="commentaire" id="commentaire" rows="4" cols="50"></textarea><br>
+
+        <input type="submit" value="Valider">
+      ';
+    } else {
+      // Affiche le message de connexion
+      echo '<p>Vous devez être connecté pour laisser un commentaire. Veuillez vous connecter ou vous inscrire.</p>';
+      echo '<a href="page_connexion.php"><button>Se connecter</button></a>';
+    }
+  ?>
+</form>
+                            -->
+
+
+<!--- Tous les films ayant le même genre que celui séléctionner -->
                             <div class="col-lg-12">
                                 <div class="pm-inner">
                                     <div class="gen-more-like">
