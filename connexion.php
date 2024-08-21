@@ -2,24 +2,23 @@
 
 function Connexion()
 {
-    $hostname = 'localhost'; /*** mysql hostname ***/
+    $hostname = '127.0.0.1'; /*** mysql hostname ***/
     $username = 'root'; /*** mysql username ***/
-    $password = 'root'; /*** mysql password ***/
-    $db = 'vivi'; /*** mysql database ***/
+    $password = 'mysql'; /*** mysql password ***/
+    $db = 'vivliomedia'; /*** mysql database ***/
 
     // Data Source Name
-    $dsn = "mysql:host=$hostname;dbname=$db";
+    $dsn = "mysql:host=$hostname;dbname=$db;charset=utf8mb4"; // Utilisation de utf8mb4
     try {
         $bdd = new PDO($dsn, $username, $password);
-        $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        
-        $bdd->exec("SET NAMES 'utf8'"); // Configuration de l'encodage UTF-8
+        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         return $bdd;
     }
     catch(PDOException $e) {
-        echo "Erreur de connection ! </br>";
-        echo $e->getMessage();
+        // En production, il serait préférable de ne pas afficher le message d'erreur mais de le journaliser
+        echo "Erreur de connexion à la base de données. Veuillez réessayer plus tard.";
+        // file_put_contents('pdo_errors.log', $e->getMessage(), FILE_APPEND); // Exemple de journalisation
     }
 }
 
